@@ -1,0 +1,47 @@
+﻿@model List<SMS.ViewModel.UserVM>
+@{
+    ViewBag.Title = "View Invoice : ByUserName";
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="box box-success">
+            <form class="form-horizontal" id="frmUser">
+                <!--Add button-->
+                <div class="box-body">
+                    <!--List Table-->
+                    <table id="tblUserList" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
+                        <thead>
+                            <tr>
+                                <th>User Name </th>
+                                <th>Full Address</th>
+                                <th>Phone No</th>
+                                <th>Email</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var user in Model)
+                            {
+                                <tr>
+                                    <td>@user.Name</td>
+                                    <td>@user.FullAddress</td>
+                                    <td>@user.PhoneNo</td>
+                                    <td>@user.Email</td>
+                                    <td align="center" valign="middle"><a href="/Order/ViewinvoiceByAdmin?userId=@user.Id" class="btn btn-success">View Order</a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        $('#tblUserList').DataTable();
+    </script>
+}

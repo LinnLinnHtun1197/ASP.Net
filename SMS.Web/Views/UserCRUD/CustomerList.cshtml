@@ -1,0 +1,98 @@
+﻿@model List<SMS.ViewModel.UserVM>
+
+@{
+    ViewBag.Title = "Customer List";
+    ViewBag.SubTitle = "Search, Edit and Delete";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="box box-success">
+            <form class="form-horizontal" id="frmUser">
+                <!--Add button-->
+                <div class="box-body">
+                    <!--List Table-->
+                    <table id="tblUser" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Gender</th>
+                                <th>DOB</th>
+                                <th>NRC</th>
+                                <th>FatherName</th>
+                                <th>Full Address</th>
+                                <th>Phone No</th>
+                                <th>Email</th>
+
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.Name</td>
+                                    <td>@item.Gender</td>
+                                    <td>@item.DOBStr</td>
+                                    <td>@item.NRC</td>
+                                    <td>@item.FatherName</td>
+                                    <td>@item.FullAddress</td>
+                                    <td>@item.PhoneNo</td>
+                                    <td>@item.Email</td>
+
+                                    <td align="center" valign="middle"><a href="/UserCRUD/Edit?id=@item.Id" class="btn btn-success">Edit</a></td>
+                                    <td align="center" valign="middle"><a class="btn btn-danger" data-toggle="modal" onclick="setRemoveData('@item.Id', '@item.Version')" data-target="#divConfirm">Delete</a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="divConfirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Customer List</h4>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure to delete?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                <button type="button" class="btn btn-success" onclick="remove()">Yes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="divSuccess">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title">Customer List</h4>
+            </div>
+            <div class="modal-body">
+                <p id="pMessage"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success pull-right" data-dismiss="modal" onclick="window.location = '/UserCRUD/CustomerList';">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/wwroot/mine/js/User.js"></script>
+    <script>
+        $("#tblUser").DataTable();
+    </script>
+}

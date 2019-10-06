@@ -1,0 +1,96 @@
+﻿@model SMS.ViewModel.BookVM
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+@{
+    var currentUser = (SMS.ViewModel.UserVM)Session["CurrentUser"];
+
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="box box-success">
+            <form action="/Book/Edit" class="form-horizontal" id="frmCategory" method="post" enctype="multipart/form-data">
+                <div class="box-header with-border">
+                    <div class="btn-group pull-right">
+                        <input type="submit" class="btn btn-success" value="Update">
+                        <button type="button" class="btn btn-default" onclick="window.location = '/Book/BookList';">Cancel</button>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-3">
+                            <div class="form-group">
+                                <input type="hidden" name="Id" value="@Model.Id" />
+                                <input type="hidden" name="Version" value="@Model.Version" />
+                                <input type="hidden" name="Cover" value="@Model.Cover" />
+                                <input type="hidden" name="UpdatedUserId" value="@currentUser.Id" />
+
+                                <label for="txtTitle" class="col-md-2 control-label">Title</label>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control" id="txtTitle" name="txtBook_Title" value="@Model.Title">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="txtAuthor" class="col-md-2 control-label">Author</label>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control" id="txtAuthor" name="txtAuthor" value="@Model.Author">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="txtSummary" class="col-md-2 control-label">Summary</label>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control" id="txtSummary" name="txtSummary" value="@Model.Summary">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="txtQty" class="col-md-2 control-label">Qty</label>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control" id="txtQty" name="txtQty" value="@Model.Qty">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="txtPrice" class="col-md-2 control-label">Price</label>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control" id="txtPrice" name="txtPrice" value="@Model.Price">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="selCategory" class="col-md-2 control-label">Category</label>
+                                <div class="col-md-10">
+                                    <select class="form-control" id="selCategory" name="selCategory">
+                                        <option value="">Select One</option>
+                                        @foreach (var item in Model.categoryVMs)
+                                        {
+                                            <option value="@item.Id">@item.Name</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="txtCover" class="col-md-2 control-label">Cover</label>
+                                <div class="col-md-10">
+                                    <img src="~/images/@Model.Cover " style="width:70px;height:70px;" />
+                                    <input type="file" name="file" id="file" style="width: 100%;" /><br />
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="~/wwroot/mine/js/Book.js"></script>
+    <script>setValidationRule()</script>
+    <script>fillData('@Model.CategoryId')</script>
+
+}
+
+

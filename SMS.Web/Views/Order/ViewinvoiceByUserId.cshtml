@@ -1,0 +1,51 @@
+﻿@model SMS.ViewModel.OrderVM
+@{
+    Layout = null;
+}
+@{
+    var currentUser = (SMS.ViewModel.UserVM)Session["CurrentUser"];
+
+}
+<!doctype html>
+<html>
+<head>
+    <title>Book Store</title>
+    <link rel="stylesheet" href="~/wwroot/mine/css/user.css">
+</head>
+<body>
+    <h1>Book Store</h1>
+    <div class="info">
+        <a href="/AddToCart/ViewCart">
+            Books in your cart
+        </a>
+    </div>
+    <div class="sidebar">
+        <ul class="cats">
+                <li>
+                    <b><a href="#" style="color:red;">View Invoice</a></b>
+                </li>
+
+                @foreach (var order in Model.OrderVMList)
+                {
+                    <li>
+                        <a href="/Order/ViewinvoiceByUserIdWithOrderDate?userId=@currentUser.Id&orderDate=@order.Order_Date">
+                            Order Date : @order.Order_Date
+                        </a>
+                    </li>
+                }
+            <li>
+                <b><a href="/User/Index">Back</a></b>
+            </li>
+            </ul>
+
+    </div>
+    <div class="main">
+        <b>       
+           Click on OrderDate : To See Invoice By OrderDate
+        </b>
+    </div>
+    <div class="footer">
+        &copy; 2018. All right reserved.
+    </div>
+</body>
+</html>

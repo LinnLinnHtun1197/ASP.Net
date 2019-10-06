@@ -1,0 +1,30 @@
+D:\aceInspiration\ASP.NETMVC\src\SMS.ViewModel\bin\Debug\SMS.ViewModel.dll
+D:\aceInspiration\ASP.NETMVC\src\SMS.ViewModel\bin\Debug\SMS.ViewModel.pdb
+D:\aceInspiration\ASP.NETMVC\src\SMS.ViewModel\obj\Debug\SMS.ViewModel.csprojResolveAssemblyReference.cache
+D:\aceInspiration\ASP.NETMVC\src\SMS.ViewModel\obj\Debug\SMS.ViewModel.dll
+D:\aceInspiration\ASP.NETMVC\src\SMS.ViewModel\obj\Debug\SMS.ViewModel.pdb
+D:\ACE Inspiration (ASP.Net MVC)\ASP.NET 201711 Class\AI_&_1_Branch\src_template\SMS.ViewModel\bin\Debug\SMS.ViewModel.dll
+D:\ACE Inspiration (ASP.Net MVC)\ASP.NET 201711 Class\AI_&_1_Branch\src_template\SMS.ViewModel\bin\Debug\SMS.ViewModel.pdb
+D:\ACE Inspiration (ASP.Net MVC)\ASP.NET 201711 Class\AI_&_1_Branch\src_template\SMS.ViewModel\obj\Debug\SMS.ViewModel.csprojResolveAssemblyReference.cache
+D:\ACE Inspiration (ASP.Net MVC)\ASP.NET 201711 Class\AI_&_1_Branch\src_template\SMS.ViewModel\obj\Debug\SMS.ViewModel.dll
+D:\ACE Inspiration (ASP.Net MVC)\ASP.NET 201711 Class\AI_&_1_Branch\src_template\SMS.ViewModel\obj\Debug\SMS.ViewModel.pdb
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.ViewModel\bin\Debug\SMS.ViewModel.dll
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.ViewModel\bin\Debug\SMS.ViewModel.pdb
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.ViewModel\obj\Debug\SMS.ViewModel.dll
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.ViewModel\obj\Debug\SMS.ViewModel.pdb
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.ViewModel\obj\Debug\SMS.ViewModel.csprojResolveAssemblyReference.cache
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.ViewModel\bin\Debug\SMS.DataModel.dll
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.ViewModel\bin\Debug\EntityFramework.dll
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.ViewModel\bin\Debug\SMS.DataModel.pdb
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.ViewModel\bin\Debug\EntityFramework.xml
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.ViewModel\bin\Debug\SMS.ViewModel.dll
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.ViewModel\bin\Debug\SMS.ViewModel.pdb
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.ViewModel\bin\Debug\SMS.DataModel.dll
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.ViewModel\bin\Debug\EntityFramework.dll
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.ViewModel\bin\Debug\SMS.DataModel.pdb
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.ViewModel\bin\Debug\EntityFramework.xml
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.ViewModel\obj\Debug\SMS.ViewModel.csprojAssemblyReference.cache
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.ViewModel\obj\Debug\SMS.ViewModel.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.ViewModel\obj\Debug\SMS.ViewModel.csproj.CopyComplete
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.ViewModel\obj\Debug\SMS.ViewModel.dll
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.ViewModel\obj\Debug\SMS.ViewModel.pdb

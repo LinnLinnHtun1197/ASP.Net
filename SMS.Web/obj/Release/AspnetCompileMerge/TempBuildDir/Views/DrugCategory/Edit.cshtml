@@ -1,0 +1,79 @@
+﻿@model EMR.Web.ViewModels.DrugVM
+
+@{
+    ViewBag.Title = "Drug Category Editing";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="box box-primary">
+            <form role="form" id="frmDrugCategory" class="form-horizontal">
+                <div class="box-body">
+                    @if (Model.ParentDrug == null)
+                    {
+                        <input type="hidden" id="hidParentCategoryId" value="0" />
+                    }
+                    else
+                    {
+                        <div class="form-group">
+                            <label for="txtParentCategory" class="col-sm-2 control-label">Parent Category</label>
+                            <div class="col-sm-5">
+                                <input type="text" class="form-control" name="txtParentCategory" id="txtParentCategory" value="@Model.ParentDrug.Name" readonly placeholder="Parent Category">
+                            </div>
+                            <input type="hidden" id="hidParentCategoryId" value="@Model.ParentDrug.Id" />
+                        </div>
+                    }
+                    
+                    <div class="form-group">
+                        <input type="hidden" id="hidId" value="@Model.Id" />
+                        <input type="hidden" id="hidVersion" value="@Model.Version" />
+                        <label for="txtName" class="col-sm-2 control-label">Name</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" name="txtName" id="txtName" value="@Model.Name" placeholder="Name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="txtDescription" class="col-sm-2 control-label">Description</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" name="txtDescription" id="txtDescription" value="@Model.Description" placeholder="Description">
+                        </div>
+                    </div>
+                </div>
+                <div class="box-footer">
+                    <button type="button" class="btn btn-success" onclick="save()">Save</button>
+                    <a href="@Url.Action("BackToList","DrugCategory")?id=@Model.Id" class="btn btn-default">Back to List</a>
+                </div>
+            </form>
+        </div>
+    </div> 
+</div>
+
+<div class="modal" id="divSuccess" >
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">Drug Category Entry</h4>
+            </div>
+            <div class="modal-body">
+                <p>Successfully updated!</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary pull-left" data-dismiss="modal" onclick="document.location = '@Url.Action("BackToList","DrugCategory")?id=@Model.Id';">OK</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+@section Scripts {
+    <script src="~/wwroot/mine/drugEdit.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            setValidationRule();
+        });
+    </script>
+}
+

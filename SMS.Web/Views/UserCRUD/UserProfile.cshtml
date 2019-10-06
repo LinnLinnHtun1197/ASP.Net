@@ -1,0 +1,40 @@
+﻿@model SMS.ViewModel.UserVM
+@{
+    Layout = null;
+}
+<!doctype html>
+<html>
+<head>
+    <title>Book Store</title>
+    <link rel="stylesheet" href="~/wwroot/mine/css/user.css">
+</head>
+<body>
+    <h1>User Profile</h1>
+    <div class="info">
+    </div>
+    <div class="sidebar">
+        <ul class="cats">
+            <li>
+                <b><a href="/User/Index">Back</a></b>
+            </li>
+
+        </ul>
+
+    </div>
+    <div class="main">
+        <b>
+            <i>Name		: @Model.Name</i><br>
+            <i>Gender	: @Model.Gender</i><br>
+            <i>Date of Birth	: @Model.DOBStr</i><br>
+            <i>NRC	: @Model.NRC</i><br>
+            <i>Father Name	: @Model.FatherName</i><br>
+            <i>Full Address	: @Model.FullAddress</i><br>
+            <i>Phone No	: @Model.PhoneNo</i><br>
+            <i>Email	: @Model.Email</i><br>
+        </b>
+    </div>
+    <div class="footer">
+        &copy; 2018. All right reserved.
+    </div>
+</body>
+</html>

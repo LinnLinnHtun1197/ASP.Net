@@ -1,0 +1,102 @@
+﻿@model EMR.Web.ViewModels.DrugVM
+
+@{
+    ViewBag.Title = "Drug Category List";
+    ViewBag.SubTitle = "Search, Edit and Delete";
+}
+
+@section scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            bindGrid("#tblDrugCategoryList");
+        });
+
+        function refresh() {
+            $('#tblDrugCategoryList').DataTable().ajax.reload();
+        }
+
+        function bindGrid(id) {
+            $(id).DataTable({
+                "processing": true,
+                "serverSide": true,
+                "info": true,
+                "filter": true,
+                "pageLength": 50,
+                "responsive":true,
+                buttons: [
+                    'pageLength'
+                ],
+                "ajax": {
+                    "type": "POST",
+                    "url": '@Url.Action("SelectList", "DrugCategory")?parentId=@Model.Id',
+                    "contentType": 'application/json; charset=utf-8',
+                    'data': function (data) { return data = JSON.stringify(data); },
+                    cache: false,
+                    'error': function (msg) {
+                        document.write(msg.responseText);
+                    }
+                },
+                "columns": [
+                    { "data": "Name", },
+                    { "data": "Description", },
+                    {
+                        "data": null, "orderable": false,
+                        "render": function (data, type, row, meta) {
+                            return '<a href="/DrugCategory/Edit?Id=' + data.Id + '"><span class="fa fa-edit" aria-hidden="true"></span></a>';
+                        }
+                    },
+                    {
+                        "data": null, "orderable": false,
+                        "render": function (data, type, row, meta) {
+                            return '<a href="/DrugCategory/List?Id=' + data.Id + '"><span class="fa fa-list" aria-hidden="true"></span></a>';
+                        }
+                    },
+                    {
+                        "data": null, "orderable": false,
+                        "render": function (data, type, row, meta) {
+                            return '<a href="/Drug/List?categoryId=' + data.Id + '"><span class="fa fa-list" aria-hidden="true"></span></a>';
+                        }
+                    }, ],
+                "order": [1, "asc"]
+            });
+        }
+    </script>
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box-header">
+            <a href="/DrugCategory/Entry?id=@Model.Id" class="btn btn-success">New Drug Category</a>
+            @if (Model.Id != 0)
+            {
+                <a href="/DrugCategory/BackToList?id=@Model.Id" class="btn btn-default">Back</a>
+            }            
+        </div>
+        <div class="box-header with-border">
+            @if (Model != null && Model.Id != 0)
+            {
+                <div class="form-group">
+                    <label for="txtCategoryName" class="col-sm-2 control-label">Parent Category Name</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="txtCategoryName" id="txtCategoryName" readonly value="@Model.Name" placeholder="Name">
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="box-body">            
+            <div class="table-responsive">
+                <table id="tblDrugCategoryList" class="table table-bordered table-striped dt-responsive nowrap" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Edit</th>
+                            <th>Sub Category List</th>
+                            <th>Drug List</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>         
+        </div>
+    </div>
+</div>

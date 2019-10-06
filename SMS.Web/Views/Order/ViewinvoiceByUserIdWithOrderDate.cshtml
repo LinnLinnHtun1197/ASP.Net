@@ -1,0 +1,68 @@
+﻿@model SMS.ViewModel.OrderVM
+@{
+    Layout = null;
+    var total = 0;
+}
+<!doctype html>
+<html>
+<head>
+    <title>Book Store</title>
+    <link rel="stylesheet" href="~/wwroot/mine/css/user.css">
+</head>
+<body>
+    <h1>Book Store</h1>
+    <div class="info">
+        <a href="/AddToCart/ViewCart">
+            Books in your cart
+        </a>
+    </div>
+    <div class="sidebar">
+        <ul class="cats">           
+            <li>
+                <b><a href="/Order/ViewinvoiceByUserId?userId=@Model.OrderVMs.UserId">Back</a></b>
+            </li>
+
+        </ul>
+
+    </div>
+    <div class="main">
+        <b>       
+            <i>Order Date		: @Model.OrderVMs.Order_Date</i><br>
+            <i>Customer Name	: @Model.OrderVMs.Name</i><br>
+            <i>Email	: @Model.OrderVMs.Email</i><br>
+            <i>Phone	: @Model.OrderVMs.PhoneNo</i><br>
+            <i>Address	: @Model.OrderVMs.FullAddress</i><br>
+            <i>Receiver Name	: @Model.OrderVMs.Receiver_Name</i><br>
+            <i>Delivery Address	: @Model.OrderVMs.Delivery_Address</i>
+        </b>
+        <table border="1">
+
+            <tr>
+                <th>Book Title</th>
+                <th>Quantity</th>
+                <th>Unit Price</th>
+                <th>Price</th>
+            </tr>
+     
+            @foreach (var books in Model.BookVM)
+            {
+                int price = books.Qty * books.Price;
+                <tr>
+                    <td>@books.Title</td>
+                    <td>@books.Qty</td>
+                    <td>@books.Price</td>
+                    <td>@price</td>
+                </tr>
+                total += price;
+            }
+            <tr>
+                <td colspan="3" align="right"><b>Total: </b></td>
+                <td>@total</td>
+            </tr>
+        </table>
+    </div>
+    <div class="footer">
+        &copy; 2018. All right reserved.
+    </div>
+</body>
+</html>

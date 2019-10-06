@@ -1,0 +1,206 @@
+D:\aceInspiration\ASP.NETMVC\src\EMR.Web\bin\roslyn\csc.exe
+D:\aceInspiration\ASP.NETMVC\src\EMR.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\aceInspiration\ASP.NETMVC\src\EMR.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\aceInspiration\ASP.NETMVC\src\EMR.Web\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\aceInspiration\ASP.NETMVC\src\EMR.Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\aceInspiration\ASP.NETMVC\src\EMR.Web\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\aceInspiration\ASP.NETMVC\src\EMR.Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\aceInspiration\ASP.NETMVC\src\EMR.Web\bin\roslyn\System.Collections.Immutable.dll
+D:\aceInspiration\ASP.NETMVC\src\EMR.Web\bin\roslyn\System.Reflection.Metadata.dll
+D:\aceInspiration\ASP.NETMVC\src\EMR.Web\bin\roslyn\vbc.exe
+D:\aceInspiration\ASP.NETMVC\src\EMR.Web\bin\roslyn\VBCSCompiler.exe
+D:\aceInspiration\ASP.NETMVC\src\EMR.Web\bin\roslyn\VBCSCompiler.exe.config
+D:\aceInspiration\ASP.NETMVC\src\EMR.Web\bin\SMS.Web.dll.config
+D:\aceInspiration\ASP.NETMVC\src\EMR.Web\bin\SMS.Web.dll
+D:\aceInspiration\ASP.NETMVC\src\EMR.Web\bin\SMS.Web.pdb
+D:\aceInspiration\ASP.NETMVC\src\EMR.Web\bin\log4net.dll
+D:\aceInspiration\ASP.NETMVC\src\EMR.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\aceInspiration\ASP.NETMVC\src\EMR.Web\bin\Microsoft.Web.Infrastructure.dll
+D:\aceInspiration\ASP.NETMVC\src\EMR.Web\bin\Newtonsoft.Json.dll
+D:\aceInspiration\ASP.NETMVC\src\EMR.Web\bin\System.Web.Helpers.dll
+D:\aceInspiration\ASP.NETMVC\src\EMR.Web\bin\System.Web.Mvc.dll
+D:\aceInspiration\ASP.NETMVC\src\EMR.Web\bin\System.Web.Razor.dll
+D:\aceInspiration\ASP.NETMVC\src\EMR.Web\bin\System.Web.Webpages.Deployment.dll
+D:\aceInspiration\ASP.NETMVC\src\EMR.Web\bin\System.Web.Webpages.dll
+D:\aceInspiration\ASP.NETMVC\src\EMR.Web\bin\System.Web.Webpages.Razor.dll
+D:\aceInspiration\ASP.NETMVC\src\EMR.Web\bin\log4net.xml
+D:\aceInspiration\ASP.NETMVC\src\EMR.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\aceInspiration\ASP.NETMVC\src\EMR.Web\bin\Newtonsoft.Json.xml
+D:\aceInspiration\ASP.NETMVC\src\EMR.Web\bin\System.Web.Razor.xml
+D:\aceInspiration\ASP.NETMVC\src\EMR.Web\bin\System.Web.Webpages.xml
+D:\aceInspiration\ASP.NETMVC\src\EMR.Web\bin\System.Web.Webpages.Deployment.xml
+D:\aceInspiration\ASP.NETMVC\src\EMR.Web\bin\System.Web.Webpages.Razor.xml
+D:\aceInspiration\ASP.NETMVC\src\EMR.Web\bin\System.Web.Helpers.xml
+D:\aceInspiration\ASP.NETMVC\src\EMR.Web\bin\System.Web.Mvc.xml
+D:\aceInspiration\ASP.NETMVC\src\EMR.Web\obj\Debug\SMS.Web.dll
+D:\aceInspiration\ASP.NETMVC\src\EMR.Web\obj\Debug\SMS.Web.pdb
+D:\aceInspiration\ASP.NETMVC\src\SMS.Web\bin\roslyn\csc.exe
+D:\aceInspiration\ASP.NETMVC\src\SMS.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\aceInspiration\ASP.NETMVC\src\SMS.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\aceInspiration\ASP.NETMVC\src\SMS.Web\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\aceInspiration\ASP.NETMVC\src\SMS.Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\aceInspiration\ASP.NETMVC\src\SMS.Web\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\aceInspiration\ASP.NETMVC\src\SMS.Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\aceInspiration\ASP.NETMVC\src\SMS.Web\bin\roslyn\System.Collections.Immutable.dll
+D:\aceInspiration\ASP.NETMVC\src\SMS.Web\bin\roslyn\System.Reflection.Metadata.dll
+D:\aceInspiration\ASP.NETMVC\src\SMS.Web\bin\roslyn\vbc.exe
+D:\aceInspiration\ASP.NETMVC\src\SMS.Web\bin\roslyn\VBCSCompiler.exe
+D:\aceInspiration\ASP.NETMVC\src\SMS.Web\bin\roslyn\VBCSCompiler.exe.config
+D:\aceInspiration\ASP.NETMVC\src\SMS.Web\bin\SMS.Web.dll.config
+D:\aceInspiration\ASP.NETMVC\src\SMS.Web\bin\SMS.Web.dll
+D:\aceInspiration\ASP.NETMVC\src\SMS.Web\bin\SMS.Web.pdb
+D:\aceInspiration\ASP.NETMVC\src\SMS.Web\bin\log4net.dll
+D:\aceInspiration\ASP.NETMVC\src\SMS.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\aceInspiration\ASP.NETMVC\src\SMS.Web\bin\Microsoft.Web.Infrastructure.dll
+D:\aceInspiration\ASP.NETMVC\src\SMS.Web\bin\Newtonsoft.Json.dll
+D:\aceInspiration\ASP.NETMVC\src\SMS.Web\bin\System.Web.Helpers.dll
+D:\aceInspiration\ASP.NETMVC\src\SMS.Web\bin\System.Web.Mvc.dll
+D:\aceInspiration\ASP.NETMVC\src\SMS.Web\bin\System.Web.Razor.dll
+D:\aceInspiration\ASP.NETMVC\src\SMS.Web\bin\System.Web.Webpages.Deployment.dll
+D:\aceInspiration\ASP.NETMVC\src\SMS.Web\bin\System.Web.Webpages.dll
+D:\aceInspiration\ASP.NETMVC\src\SMS.Web\bin\System.Web.Webpages.Razor.dll
+D:\aceInspiration\ASP.NETMVC\src\SMS.Web\bin\log4net.xml
+D:\aceInspiration\ASP.NETMVC\src\SMS.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\aceInspiration\ASP.NETMVC\src\SMS.Web\bin\Newtonsoft.Json.xml
+D:\aceInspiration\ASP.NETMVC\src\SMS.Web\bin\System.Web.Razor.xml
+D:\aceInspiration\ASP.NETMVC\src\SMS.Web\bin\System.Web.Webpages.xml
+D:\aceInspiration\ASP.NETMVC\src\SMS.Web\bin\System.Web.Webpages.Deployment.xml
+D:\aceInspiration\ASP.NETMVC\src\SMS.Web\bin\System.Web.Webpages.Razor.xml
+D:\aceInspiration\ASP.NETMVC\src\SMS.Web\bin\System.Web.Helpers.xml
+D:\aceInspiration\ASP.NETMVC\src\SMS.Web\bin\System.Web.Mvc.xml
+D:\aceInspiration\ASP.NETMVC\src\SMS.Web\obj\Debug\SMS.Web.csprojResolveAssemblyReference.cache
+D:\aceInspiration\ASP.NETMVC\src\SMS.Web\obj\Debug\SMS.Web.dll
+D:\aceInspiration\ASP.NETMVC\src\SMS.Web\obj\Debug\SMS.Web.pdb
+D:\ACE Inspiration (ASP.Net MVC)\ASP.NET 201711 Class\AI_&_1_Branch\src_template\SMS.Web\bin\roslyn\csc.exe
+D:\ACE Inspiration (ASP.Net MVC)\ASP.NET 201711 Class\AI_&_1_Branch\src_template\SMS.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\ACE Inspiration (ASP.Net MVC)\ASP.NET 201711 Class\AI_&_1_Branch\src_template\SMS.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\ACE Inspiration (ASP.Net MVC)\ASP.NET 201711 Class\AI_&_1_Branch\src_template\SMS.Web\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\ACE Inspiration (ASP.Net MVC)\ASP.NET 201711 Class\AI_&_1_Branch\src_template\SMS.Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\ACE Inspiration (ASP.Net MVC)\ASP.NET 201711 Class\AI_&_1_Branch\src_template\SMS.Web\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\ACE Inspiration (ASP.Net MVC)\ASP.NET 201711 Class\AI_&_1_Branch\src_template\SMS.Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\ACE Inspiration (ASP.Net MVC)\ASP.NET 201711 Class\AI_&_1_Branch\src_template\SMS.Web\bin\roslyn\System.Collections.Immutable.dll
+D:\ACE Inspiration (ASP.Net MVC)\ASP.NET 201711 Class\AI_&_1_Branch\src_template\SMS.Web\bin\roslyn\System.Reflection.Metadata.dll
+D:\ACE Inspiration (ASP.Net MVC)\ASP.NET 201711 Class\AI_&_1_Branch\src_template\SMS.Web\bin\roslyn\vbc.exe
+D:\ACE Inspiration (ASP.Net MVC)\ASP.NET 201711 Class\AI_&_1_Branch\src_template\SMS.Web\bin\roslyn\VBCSCompiler.exe
+D:\ACE Inspiration (ASP.Net MVC)\ASP.NET 201711 Class\AI_&_1_Branch\src_template\SMS.Web\bin\roslyn\VBCSCompiler.exe.config
+D:\ACE Inspiration (ASP.Net MVC)\ASP.NET 201711 Class\AI_&_1_Branch\src_template\SMS.Web\bin\SMS.Web.dll.config
+D:\ACE Inspiration (ASP.Net MVC)\ASP.NET 201711 Class\AI_&_1_Branch\src_template\SMS.Web\bin\SMS.Web.dll
+D:\ACE Inspiration (ASP.Net MVC)\ASP.NET 201711 Class\AI_&_1_Branch\src_template\SMS.Web\bin\SMS.Web.pdb
+D:\ACE Inspiration (ASP.Net MVC)\ASP.NET 201711 Class\AI_&_1_Branch\src_template\SMS.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\ACE Inspiration (ASP.Net MVC)\ASP.NET 201711 Class\AI_&_1_Branch\src_template\SMS.Web\bin\Microsoft.Web.Infrastructure.dll
+D:\ACE Inspiration (ASP.Net MVC)\ASP.NET 201711 Class\AI_&_1_Branch\src_template\SMS.Web\bin\Newtonsoft.Json.dll
+D:\ACE Inspiration (ASP.Net MVC)\ASP.NET 201711 Class\AI_&_1_Branch\src_template\SMS.Web\bin\System.Web.Helpers.dll
+D:\ACE Inspiration (ASP.Net MVC)\ASP.NET 201711 Class\AI_&_1_Branch\src_template\SMS.Web\bin\System.Web.Mvc.dll
+D:\ACE Inspiration (ASP.Net MVC)\ASP.NET 201711 Class\AI_&_1_Branch\src_template\SMS.Web\bin\System.Web.Razor.dll
+D:\ACE Inspiration (ASP.Net MVC)\ASP.NET 201711 Class\AI_&_1_Branch\src_template\SMS.Web\bin\System.Web.Webpages.Deployment.dll
+D:\ACE Inspiration (ASP.Net MVC)\ASP.NET 201711 Class\AI_&_1_Branch\src_template\SMS.Web\bin\System.Web.Webpages.dll
+D:\ACE Inspiration (ASP.Net MVC)\ASP.NET 201711 Class\AI_&_1_Branch\src_template\SMS.Web\bin\System.Web.Webpages.Razor.dll
+D:\ACE Inspiration (ASP.Net MVC)\ASP.NET 201711 Class\AI_&_1_Branch\src_template\SMS.Web\bin\log4net.xml
+D:\ACE Inspiration (ASP.Net MVC)\ASP.NET 201711 Class\AI_&_1_Branch\src_template\SMS.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\ACE Inspiration (ASP.Net MVC)\ASP.NET 201711 Class\AI_&_1_Branch\src_template\SMS.Web\bin\Newtonsoft.Json.xml
+D:\ACE Inspiration (ASP.Net MVC)\ASP.NET 201711 Class\AI_&_1_Branch\src_template\SMS.Web\bin\System.Web.Razor.xml
+D:\ACE Inspiration (ASP.Net MVC)\ASP.NET 201711 Class\AI_&_1_Branch\src_template\SMS.Web\bin\System.Web.Webpages.xml
+D:\ACE Inspiration (ASP.Net MVC)\ASP.NET 201711 Class\AI_&_1_Branch\src_template\SMS.Web\bin\System.Web.Webpages.Deployment.xml
+D:\ACE Inspiration (ASP.Net MVC)\ASP.NET 201711 Class\AI_&_1_Branch\src_template\SMS.Web\bin\System.Web.Webpages.Razor.xml
+D:\ACE Inspiration (ASP.Net MVC)\ASP.NET 201711 Class\AI_&_1_Branch\src_template\SMS.Web\bin\System.Web.Helpers.xml
+D:\ACE Inspiration (ASP.Net MVC)\ASP.NET 201711 Class\AI_&_1_Branch\src_template\SMS.Web\bin\System.Web.Mvc.xml
+D:\ACE Inspiration (ASP.Net MVC)\ASP.NET 201711 Class\AI_&_1_Branch\src_template\SMS.Web\obj\Debug\SMS.Web.csprojResolveAssemblyReference.cache
+D:\ACE Inspiration (ASP.Net MVC)\ASP.NET 201711 Class\AI_&_1_Branch\src_template\SMS.Web\obj\Debug\SMS.Web.dll
+D:\ACE Inspiration (ASP.Net MVC)\ASP.NET 201711 Class\AI_&_1_Branch\src_template\SMS.Web\obj\Debug\SMS.Web.pdb
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.Web\bin\roslyn\csc.exe
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.Web\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.Web\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.Web\bin\roslyn\System.Collections.Immutable.dll
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.Web\bin\roslyn\System.Reflection.Metadata.dll
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.Web\bin\roslyn\vbc.exe
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.Web\bin\roslyn\VBCSCompiler.exe
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.Web\bin\roslyn\VBCSCompiler.exe.config
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.Web\bin\SMS.Web.dll.config
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.Web\bin\SMS.Web.dll
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.Web\bin\SMS.Web.pdb
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.Web\bin\EntityFramework.dll
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.Web\bin\EntityFramework.Extended.dll
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.Web\bin\EntityFramework.SqlServer.dll
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.Web\bin\Microsoft.Web.Infrastructure.dll
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.Web\bin\Newtonsoft.Json.dll
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.Web\bin\SMS.Service.dll
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.Web\bin\SMS.ViewModel.dll
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.Web\bin\System.Web.Helpers.dll
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.Web\bin\System.Web.Mvc.dll
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.Web\bin\System.Web.Razor.dll
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.Web\bin\System.Web.Webpages.Deployment.dll
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.Web\bin\System.Web.Webpages.dll
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.Web\bin\System.Web.Webpages.Razor.dll
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.Web\bin\SMS.DataModel.dll
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.Web\bin\SMS.Service.pdb
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.Web\bin\SMS.ViewModel.pdb
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.Web\bin\EntityFramework.xml
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.Web\bin\EntityFramework.Extended.xml
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.Web\bin\EntityFramework.SqlServer.xml
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.Web\bin\Newtonsoft.Json.xml
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.Web\bin\System.Web.Razor.xml
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.Web\bin\System.Web.Webpages.xml
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.Web\bin\System.Web.Webpages.Deployment.xml
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.Web\bin\System.Web.Webpages.Razor.xml
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.Web\bin\System.Web.Helpers.xml
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.Web\bin\System.Web.Mvc.xml
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.Web\bin\SMS.DataModel.pdb
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.Web\obj\Debug\SMS.Web.csprojResolveAssemblyReference.cache
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.Web\obj\Debug\SMS.Web.dll
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.Web\obj\Debug\SMS.Web.pdb
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.Web\bin\roslyn\csc.exe
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.Web\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.Web\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.Web\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.Web\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.Web\bin\roslyn\vbc.exe
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.Web\bin\roslyn\VBCSCompiler.exe
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.Web\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.Web\bin\SMS.Web.dll.config
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.Web\bin\SMS.Web.dll
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.Web\bin\SMS.Web.pdb
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.Web\bin\EntityFramework.dll
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.Web\bin\EntityFramework.Extended.dll
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.Web\bin\EntityFramework.SqlServer.dll
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.Web\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.Web\bin\Newtonsoft.Json.dll
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.Web\bin\SMS.DataModel.dll
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.Web\bin\SMS.Service.dll
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.Web\bin\SMS.ViewModel.dll
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.Web\bin\System.Web.Helpers.dll
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.Web\bin\System.Web.Mvc.dll
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.Web\bin\System.Web.Razor.dll
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.Web\bin\System.Web.Webpages.Deployment.dll
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.Web\bin\System.Web.Webpages.dll
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.Web\bin\System.Web.Webpages.Razor.dll
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.Web\bin\SMS.DataModel.pdb
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.Web\bin\SMS.Service.pdb
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.Web\bin\SMS.ViewModel.pdb
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.Web\bin\EntityFramework.xml
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.Web\bin\EntityFramework.Extended.xml
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.Web\bin\EntityFramework.Extended.dll.config
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.Web\bin\EntityFramework.SqlServer.xml
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.Web\bin\Newtonsoft.Json.xml
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.Web\bin\System.Web.Razor.xml
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.Web\bin\System.Web.Webpages.xml
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.Web\bin\System.Web.Webpages.Deployment.xml
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.Web\bin\System.Web.Webpages.Razor.xml
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.Web\bin\System.Web.Helpers.xml
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.Web\bin\System.Web.Mvc.xml
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.Web\obj\Debug\SMS.Web.csprojAssemblyReference.cache
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.Web\obj\Debug\SMS.Web.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.Web\obj\Debug\SMS.Web.csproj.CopyComplete
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.Web\obj\Debug\SMS.Web.dll
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.Web\obj\Debug\SMS.Web.pdb

@@ -1,0 +1,11 @@
+D:\office\Hospital\src\EMR.DataModel\bin\Release\EMR.DataModel.dll
+D:\office\Hospital\src\EMR.DataModel\bin\Release\EMR.DataModel.pdb
+D:\office\Hospital\src\EMR.DataModel\bin\Release\EntityFramework.dll
+D:\office\Hospital\src\EMR.DataModel\bin\Release\EntityFramework.Extended.dll
+D:\office\Hospital\src\EMR.DataModel\bin\Release\EntityFramework.SqlServer.dll
+D:\office\Hospital\src\EMR.DataModel\bin\Release\EntityFramework.xml
+D:\office\Hospital\src\EMR.DataModel\bin\Release\EntityFramework.Extended.xml
+D:\office\Hospital\src\EMR.DataModel\bin\Release\EntityFramework.SqlServer.xml
+D:\office\Hospital\src\EMR.DataModel\obj\Release\EMR.DataModel.csprojResolveAssemblyReference.cache
+D:\office\Hospital\src\EMR.DataModel\obj\Release\EMR.DataModel.dll
+D:\office\Hospital\src\EMR.DataModel\obj\Release\EMR.DataModel.pdb

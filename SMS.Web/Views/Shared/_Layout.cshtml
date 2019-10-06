@@ -1,0 +1,243 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Online Book Store</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="~/wwroot/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/wwroot/dist/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/wwroot/dist/css/ionicons.min.css">
+    <link rel="stylesheet" href="~/wwroot/dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="~/wwroot/mine/css/myStyle.css">
+    <link rel="stylesheet" href="~/wwroot/dist/css/skins/skin-blue-light.css">
+    <link rel="stylesheet" href="~/wwroot/plugins/datatables/dataTables.bootstrap.css">
+    <link rel="stylesheet" href="~/wwroot/plugins/select2/select2.min.css">
+    <link rel="stylesheet" href="~/wwroot/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css">
+    <link rel="stylesheet" href="~/wwroot/plugins/datatables/extensions/Responsive/css/dataTables.responsive.css">
+
+    @RenderSection("styles", required: false)
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="~/wwroot/dist/js/html5shiv.min.js"></script>
+    <script src="~/wwroot/dist/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<!--
+BODY TAG OPTIONS:
+=================
+Apply one or more of the following classes to get the
+desired effect
+|---------------------------------------------------------|
+| SKINS         | skin-blue                               |
+|               | skin-black                              |
+|               | skin-purple                             |
+|               | skin-yellow                             |
+|               | skin-red                                |
+|               | skin-green                              |
+|---------------------------------------------------------|
+|LAYOUT OPTIONS | fixed                                   |
+|               | layout-boxed                            |
+|               | layout-top-nav                          |
+|               | sidebar-collapse                        |
+|               | sidebar-mini                            |
+|---------------------------------------------------------|
+-->
+<body class="hold-transition skin-blue-light sidebar-mini">
+    <div class="wrapper">
+        <header class="main-header">
+            <a href="#" class="logo">
+                <!-- mini logo for sidebar mini 50x50 pixels -->
+                <span class="logo-mini"><b>OBS</b></span>
+                <!-- logo for regular state and mobile devices -->
+                <span class="logo-lg"><b>Online Book Store</b></span>
+            </a>
+            <nav class="navbar navbar-static-top" role="navigation">
+                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                </a>
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown user user-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <img src="~/wwroot/dist/img/avatar2.png" class="user-image" alt="User Image">
+                                @{
+                                    var currentUser = (SMS.ViewModel.UserVM)Session["CurrentUser"];
+                                    <span class="hidden-xs">@currentUser.Name</span>
+                                }
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!-- User image -->
+                                <li class="user-header">
+                                    <img src="~/wwroot/dist/img/avatar2.png" class="img-circle" alt="User Image">
+
+                                    <p>
+                                        @currentUser.Name
+                                    </p>
+                                </li>
+                                <!-- Menu Footer-->
+                                <li class="user-footer">
+                                    <div class="pull-left">
+                                        <a href="/AdminCRUD/AdminProfile/@currentUser.Id" class="btn btn-default btn-flat">Profile</a>
+                                    </div>
+                                    <div class="pull-right">
+                                        <a href="/Admin/Logout" class="btn btn-default btn-flat">Sign out</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <aside class="main-sidebar">
+            <section class="sidebar">
+                <ul class="sidebar-menu">
+                    @{
+                        if (currentUser.PositionId == 2) //admin
+                        {
+                            @*Category CRUD*@
+                            <li class="treeview" id="Branch">
+                                <a href="#">
+                                    <i class="fa fa-dashboard"></i> <span>Position</span>
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li><a href="/Position/List"><i class="fa fa-list-alt"></i> <span>List</span></a></li>
+                                    <li><a href="/Position/Entry"><i class="fa fa-plus-square"></i> <span>Entry</span></a></li>
+                                </ul>
+                            </li>
+                            @*Category CRUD*@
+                            <li class="treeview" id="Branch">
+                                <a href="#">
+                                    <i class="fa fa-th-large"></i> <span>Category</span>
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li><a href="/Category/List"><i class="fa fa-list-alt"></i> <span>List</span></a></li>
+                                    <li><a href="/Category/Entry"><i class="fa fa-plus-square"></i> <span>Entry</span></a></li>
+                                </ul>
+                            </li>
+                            @*Book CRUD*@
+                            <li class="treeview" id="Book">
+                                <a href="#">
+                                    <i class="fa fa-book"></i> <span>Book</span>
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li><a href="/Book/List"><i class="fa fa-list-alt"></i> <span>List</span></a></li>
+                                    <li><a href="/Book/Entry"><i class="fa fa-plus-square"></i> <span>Entry</span></a></li>
+                                    <li><a href="/Book/StockBalance"><i class="fa  fa-balance-scale"></i> <span>Stock Balance</span></a></li>
+                                </ul>
+                            </li>
+                            @*Order Menu*@
+                            <li class="treeview" id="ClassRoom">
+                                <a href="/Order/List">
+                                    <i class="fa  fa-reorder"></i> <span>View Order</span>
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li><a href="/Order/List"><i class="fa fa-list-alt"></i> <span>All of Order List</span></a></li>
+                                    <li><a href="/Order/ViewInvoiceByUserName"><i class="fa fa-list-alt"></i> <span>View Invoice: By UserName</span></a></li>
+                                </ul>
+                            </li>
+
+                            @*User CRUD*@
+                            <li class="treeview" id="Batch">
+                                <a href="#">
+                                    <i class="fa fa-users"></i> <span>Customer List</span>
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li><a href="/UserCRUD/CustomerList"><i class="fa fa-list-alt"></i> <span>List</span></a></li>
+                                </ul>
+                            </li>
+                            @*User CRUD*@
+                            <li class="treeview" id="Batch">
+                                <a href="#">
+                                    <i class="glyphicon glyphicon-user"></i> <span>Admin List</span>
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li><a href="/AdminCRUD/AdminList"><i class="fa fa-list-alt"></i> <span>List</span></a></li>
+                                </ul>
+                            </li>
+
+                            @*User CRUD*@
+                            <li class="treeview" id="Batch">
+                                <a href="#">
+                                    <i class="fa fa-registered"></i> <span>Register for New Admin</span>
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li><a href="/AdminCRUD/Entry"><i class="fa fa-list-alt"></i> <span>Register</span></a></li>
+                                </ul>
+                            </li>
+
+                            @*Report Menu*@
+                            <li class="treeview" id="Class">
+                                <a href="#">
+                                    <i class="fa fa-desktop"></i> <span>Reports</span>
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li><a href="/Report/IncomeReport"><i class="fa fa-desktop"></i> <span>Report :Income </span></a></li>
+                                    <li><a href="/Report/BookBalanceReport"><i class="fa fa-desktop"></i> <span>Report :Book Balance </span></a></li>
+                                </ul>
+                            </li>
+                        }
+                        
+                        
+                    }
+                </ul>
+            </section>
+        </aside>
+        <div class="content-wrapper">
+            <section class="content-header">
+                <h1>
+                    @ViewBag.Title
+                    <small>@ViewBag.SubTitle</small>
+                </h1>
+            </section>
+            <section class="content">
+                @RenderBody()
+            </section>
+        </div>
+        <footer class="main-footer">
+          
+            <strong>Copyright &copy; 2018 <a href="#">Company</a>.</strong> All rights reserved.
+        </footer>
+    </div>
+    <script src="~/wwroot/plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <script src="~/wwroot/plugins/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/wwroot/plugins/jquery-validation/dist/additional-methods.min.js"></script>
+    <script src="~/wwroot/plugins/bootstrap-datetimepicker/js/moment.js"></script>
+    <script src="~/wwroot/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/wwroot/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/wwroot/plugins/datatables/dataTables.bootstrap.min.js"></script>
+    <script src="~/wwroot/plugins/datatables/extensions/Responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/wwroot/plugins/select2/select2.full.min.js"></script>    
+    <script src="~/wwroot/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+    <script src="~/wwroot/dist/js/app.min.js"></script>
+
+    @RenderSection("scripts", required: false)
+    
+</body>
+</html>

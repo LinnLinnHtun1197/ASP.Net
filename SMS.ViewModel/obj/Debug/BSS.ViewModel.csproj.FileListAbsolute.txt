@@ -1,0 +1,5 @@
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.ViewModel\bin\Debug\SMS.ViewModel.dll
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.ViewModel\bin\Debug\SMS.ViewModel.pdb
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.ViewModel\obj\Debug\BSS.ViewModel.csprojResolveAssemblyReference.cache
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.ViewModel\obj\Debug\SMS.ViewModel.dll
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.ViewModel\obj\Debug\SMS.ViewModel.pdb

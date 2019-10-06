@@ -1,0 +1,60 @@
+﻿@model List<SMS.ViewModel.BookVM>
+
+@{
+    ViewBag.Title = "StockBalance";
+}
+
+@{
+    var currentUser = (SMS.ViewModel.UserVM)Session["CurrentUser"];
+
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="box box-success">
+            <form class="form-horizontal" id="frmBook">
+                <div class="box-body">
+                    <!--List Table-->
+                    <table id="tblBook" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
+                        <thead>
+                            <tr>
+                                <th>Cover</th>
+                                <th>Category</th>
+                                <th>Title</th>
+                                <th>Author</th>
+                                <th>Price</th>
+                                <th>Income Qty</th>
+                                <th>Ordered Qty</th>
+                                <th>Total Balance : Qty</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                int balance = item.IncomeQty - item.Qty;
+                                <tr>
+                                    <td><img src="~/images/@item.Cover" style="width:70px;height:70px;" /></td>
+                                    <td>@item.CategoryName</td>
+                                    <td>@item.Title</td>
+                                    <td>@item.Author</td>
+                                    <td>@item.Price</td>
+                                    <td>@item.IncomeQty</td>
+                                    <td>@item.Qty</td>
+                                    <td>@balance</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        $('#tblBook').DataTable();
+    </script>
+}
+
+

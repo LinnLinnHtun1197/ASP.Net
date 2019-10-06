@@ -1,0 +1,125 @@
+﻿@model EMR.Web.ViewModels.PatientVM
+
+@{
+    ViewBag.Title = "Patient Editing";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="box box-primary">
+            <form role="form" id="frmPatient" class="form-horizontal">
+                <div class="box-body">
+                    <div class="form-group">
+                        <label for="txtPatientCode" class="col-sm-2 control-label">Patient Code</label>
+                        <div class="col-sm-5">
+                            <input type="hidden" id="hidId" value="@Model.Id" >
+                            <input type="hidden" id="hidVersion" value="@Model.Version">
+                            <input type="text" class="form-control" name="txtPatientCode" id="txtPatientCode" value="@Model.PatientCode" readonly placeholder="Patient Code">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="txtName" class="col-sm-2 control-label">Name</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" name="txtName" id="txtName" value="@Model.Name" placeholder="Name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="txtDOB" class="col-sm-2 control-label">DOB</label>
+                        <div class="col-sm-5">
+                            @if (Model.DOB == 0)
+                            {
+                                <input type="text" class="form-control" name="txtDOB" id="txtDOB" placeholder="Date of Birth">
+                            }
+                            else
+                            {
+                                <input type="text" class="form-control" name="txtDOB" id="txtDOB" value="@Model.DOB" placeholder="Date of Birth">
+                            }
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="txtAge" class="col-sm-2 control-label">Age</label>
+                        <div class="col-sm-5">
+                            <input type="number" class="form-control" name="txtAge" id="txtAge" value="@Model.Age" placeholder="Age">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Sex</label>
+                        <div class="col-sm-5">
+                            <div class="radio">
+                                <label>
+                                    @if (Model.Sex == "Male")
+                                    {
+                                        <input type="radio" name="sex" id="rdoMale" value="Male" checked='checked'>
+                                    }
+                                    else
+                                    {
+                                        <input type="radio" name="sex" id="rdoMale" value="Male">
+                                    }
+                                    Male
+                                </label>
+                                <label>
+                                    @if (Model.Sex == "Female")
+                                    {
+                                        <input type="radio" name="sex" id="rdoFemale" value="Female" checked='checked'>
+                                    }
+                                    else
+                                    {
+                                        <input type="radio" name="sex" id="rdoFemale" value="Female">
+                                    }
+                                    Female
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">City</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" rows="3" name="txtCity" id="txtCity" placeholder="City" value="@Model.City" />
+                        </div>
+                    </div>
+                </div>
+                <div class="box-footer">
+                    <button type="button" class="btn btn-success" onclick="save()">Save</button>
+                </div>
+            </form>
+        </div>
+    </div> 
+</div>
+
+<div class="modal" id="divSuccess" >
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">Patient Entry</h4>
+            </div>
+            <div class="modal-body">
+                <p>Successfully updated!</p>
+                <p>Patient Code : <b><span id="spnPatientCode"></span></b></p>  
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary pull-left" data-dismiss="modal" onclick="document.location = '@Url.Action("List","Patient")';">OK</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+@section Scripts {
+    <script src="~/wwroot/mine/patientEdit.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            setValidationRuleForPatient();
+
+            $('#txtDOB').datetimepicker({
+                format: "YYYY-MM-DD",
+                allowInputToggle: true,
+                showClose: true,
+                showTodayButton: true
+            });
+        });
+    </script>
+}
+

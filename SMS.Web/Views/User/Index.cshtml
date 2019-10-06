@@ -1,0 +1,80 @@
+﻿@model SMS.ViewModel.CategoryVM
+@{
+    Layout = null;
+}
+@{
+    var currentUser = (SMS.ViewModel.UserVM)Session["CurrentUser"];
+
+}
+<!doctype html>
+<html>
+<head>
+    <title>Book Store</title>
+    <link rel="stylesheet" href="~/wwroot/mine/css/myStyle.css">
+</head>
+<body>
+
+    <h1>Book Store</h1> 
+ 
+    
+    <div class="info">
+        
+         <b style="color:white;padding-right: 69%;"><a href="/UserCRUD/UserProfile/@currentUser.Id">User Name:   @currentUser.Name</a></b>
+        
+            <a href="/AddToCart/ViewCart">
+                Books in your cart
+            </a>
+</div>
+    <div class="sidebar">
+        <ul class="cats">
+            <li>
+                <b><a href="/User/Index">All Categories</a></b>
+            </li>
+
+            @foreach (var categories in Model.categoryVMs)
+            {
+                <li>
+                    <a href="/User/IndexByCategoryId?CatId=@categories.Id">
+                        @categories.Name
+                    </a>
+                </li>
+            }
+            <li>
+                <b><a href="/Order/ViewinvoiceByUserId?userId=@currentUser.Id" style="color:red;">View Invoice</a></b>
+            </li>           
+            <li>
+                <a href="/user/logout" style="color:red;">
+                    Logout
+                </a>
+            </li>
+        </ul>
+
+    </div>
+
+    <div class="main">
+        <ul class="books">
+            @foreach (var books in Model.BookVMs)
+            {
+                <li>
+                    <img src="~/images/@books.Cover" height="150">
+                    <b>
+                        <a href="/Book/book_detail?id=@books.Id">
+                            @books.Title
+                        </a>
+                    </b>
+                    <i>Price : @books.Price</i><br>
+                 
+                        <a href="/AddToCart/add_to_cart?id=@books.Id" class="add-to-cart">
+                            Add to Cart
+                        </a>
+          
+                    </li>
+    }
+            
+            </ul>
+        </div>
+        <div class="footer">
+            &copy; 2018. All right reserved.
+        </div>
+    </body>
+</html>

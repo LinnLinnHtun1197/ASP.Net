@@ -1,0 +1,171 @@
+﻿@model SMS.ViewModel.UserVM
+
+@{
+    ViewBag.Title = "Admin Edit";
+    ViewBag.SubTitle = "";
+}
+@{
+    var currentUser = (SMS.ViewModel.UserVM)Session["CurrentUser"];
+
+}
+<div class="row">
+    <div class="col-md-12">
+        <div class="box box-success">
+            <form class="form-horizontal" id="frmUser">
+                <!--Hidden Id & Version-->
+                <input type="hidden" id="UpdatedUserId" value="@currentUser.Id" />
+                <input type="hidden" id="hidId" value="@Model.Id" />
+                <input type="hidden" id="hidVersion" value="@Model.Version" />
+                <!--Update button-->
+                <div class="box-header with-border">
+                    <div class="btn-group pull-right">
+                        <button type="button" class="btn btn-success" onclick="update()">Update</button>
+                        <button type="button" class="btn btn-default" onclick="window.location = '/User/List';">Cancel</button>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-3">
+
+                            <div class="form-group">
+                                <label for="txtName" class="col-md-2 control-label">Name</label>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control" id="txtName" name="txtName" value="@Model.Name" placeholder="Name">
+                                </div>
+                            </div> <!--Name-->
+                            <div class="form-group">
+                                <label for="txtPassword" class="col-md-2 control-label">Password</label>
+                                <div class="col-md-10">
+                                    <input type="password" class="form-control" id="txtPassword" name="txtPassword" value="@Model.Password" placeholder="Password">
+                                </div>
+                            </div> <!--Password-->
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Gender</label>
+                                <div class="col-md-10">
+                                    <div class="radio">
+                                        <label>
+                                            @if (Model.Gender == "male")
+                                            {
+                                                <input type="radio" name="rdoGender" id="Male" value="male" checked="checked">
+                                            }
+                                            else
+                                            {
+                                                <input type="radio" name="rdoGender" id="Male" value="male">
+                                            }
+                                            Male
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label>
+                                            @if (Model.Gender == "female")
+                                            {
+                                                <input type="radio" name="rdoGender" id="Female" value="female" checked="checked">
+                                            }
+                                            else
+                                            {
+                                                <input type="radio" name="rdoGender" id="Female" value="female">
+                                            }
+                                            Female
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>  <!--Gender-->
+                            <div class="form-group">
+                                <label for="txtDOB" class="col-md-2 control-label">Date of Birth</label>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control" name="txtDOB" id="txtDOB" value="@Model.DOB" placeholder="Date of Birth" />
+                                </div>
+                            </div><!--DOB-->
+                            <div class="form-group">
+                                <label for="txtNRC" class="col-md-2 control-label">NRC</label>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control" id="txtNRC" name="txtNRC" value="@Model.NRC" placeholder="NRC">
+                                </div>
+                            </div><!--NRC-->
+                            <div class="form-group">
+                                <label for="txtFatherName" class="col-md-2 control-label">Father Name</label>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control" id="txtFatherName" name="txtFatherName" value="@Model.FatherName" placeholder="Father Name">
+                                </div>
+                            </div><!--Father Name-->
+
+                            <div class="form-group">
+                                <label for="txtFullAddress" class="col-md-2 control-label">Full Address</label>
+                                <div class="col-md-10">
+                                    <textarea class="form-control" rows="3" id="txtFullAddress" name="txtFullAddress" placeholder="Full Address">@Model.FullAddress</textarea>
+                                </div>
+                            </div> <!--Full Address-->
+                            <div class="form-group">
+                                <label for="txtPhoneNo" class="col-md-2 control-label">Phone No</label>
+                                <div class="col-md-10">
+                                    <input type="tel" class="form-control" id="txtPhoneNo" name="txtPhoneNo" value="@Model.PhoneNo" placeholder="Phone No">
+                                </div>
+                            </div><!--Phone no button-->
+                            <div class="form-group">
+                                <label for="txtEmail" class="col-md-2 control-label">Email</label>
+                                <div class="col-md-10">
+                                    <input type="email" class="form-control" id="txtEmail" name="txtEmail" value="@Model.Email" placeholder="Email">
+                                </div>
+                            </div> <!--Email button-->
+
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--Success Dialogbox-->
+<div class="modal" id="divSuccess">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title">Admin Edit</h4>
+            </div>
+            <div class="modal-body">
+                <p id="pMessage"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success pull-right" data-dismiss="modal" onclick="window.location = '/AdminCRUD/AdminList';">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Failure Dialogbox-->
+<div class="modal" id="divFailure">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title">Admin Edit</h4>
+            </div>
+            <div class="modal-body">
+                <p id="pFailureMessage"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success pull-right" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/wwroot/mine/js/Admin.js"></script>
+    <script>
+        setValidationRule();
+        fillData( '@Model.PositionId');
+        $('#txtDOB').datetimepicker({
+            format: "YYYY-MM-DD",
+            allowInputToggle: true,
+            showClose: true,
+            showTodayButton: true,
+        });
+
+
+    </script>
+}

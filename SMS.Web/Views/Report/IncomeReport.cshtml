@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "IncomeReport";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="box box-success">
+            <form class="form-horizontal" id="frmIncomeReport" action="/Report/ProduceIncomeReport" method="post">
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-3">
+                            <div class="form-group">
+                                <label for="fromDate" class="col-md-2 control-label">From Date</label>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control" name="fromDate" id="fromDate" placeholder="Choose From Date" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="fromDate" class="col-md-2 control-label"> To Date</label>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control" name="toDate" id="toDate" placeholder="Choose To Date" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-success col-md-3">Produce Report</button>
+                                <div class="col-md-9">
+                                    <button type="reset" class="btn btn-primary col-md-3">Clear</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+@section scripts{
+    <script>
+        $('#fromDate').datetimepicker({
+            format: "YYYY-MM-DD",
+            allowInputToggle: true,
+            showClose: true,
+            showTodayButton: true,
+        });
+        $('#toDate').datetimepicker({
+            format: "YYYY-MM-DD",
+            allowInputToggle: true,
+            showClose: true,
+            showTodayButton: true,
+        });
+
+    </script>
+}

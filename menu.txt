@@ -1,0 +1,37 @@
+<div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown user user-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <img src="~/wwroot/dist/img/avatar5.png" class="user-image" alt="User Image">
+                                <span class="hidden-xs">
+                                    @if (User != null && User.Identity.IsAuthenticated)
+                                    {
+                                        @User.Identity.Name;
+                                    }
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="user-header">
+                                    <img src="~/wwroot/dist/img/avatar5.png" class="img-circle" alt="User Image">
+                                    <p>
+                                        @if (User != null && User.Identity.IsAuthenticated)
+                                        {
+                                            @User.Identity.Name;
+                                        }
+                                    </p>
+                                </li>
+                                <li class="user-footer">
+                                    @if (User != null && User.Identity.IsAuthenticated)
+                                    {
+                                        <div class="pull-left">
+                                            <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                        </div>
+                                    }                                    
+                                    <div class="pull-right">
+                                        <a href="/User/SignOut" class="btn btn-default btn-flat">Sign out</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>

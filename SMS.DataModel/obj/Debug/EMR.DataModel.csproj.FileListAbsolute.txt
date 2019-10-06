@@ -1,0 +1,10 @@
+D:\office\Hospital\src\EMR.DataModel\bin\Debug\EMR.DataModel.dll
+D:\office\Hospital\src\EMR.DataModel\bin\Debug\EMR.DataModel.pdb
+D:\office\Hospital\src\EMR.DataModel\bin\Debug\EntityFramework.dll
+D:\office\Hospital\src\EMR.DataModel\bin\Debug\EntityFramework.Extended.dll
+D:\office\Hospital\src\EMR.DataModel\bin\Debug\EntityFramework.SqlServer.dll
+D:\office\Hospital\src\EMR.DataModel\bin\Debug\EntityFramework.xml
+D:\office\Hospital\src\EMR.DataModel\bin\Debug\EntityFramework.Extended.xml
+D:\office\Hospital\src\EMR.DataModel\bin\Debug\EntityFramework.SqlServer.xml
+D:\office\Hospital\src\EMR.DataModel\obj\Debug\EMR.DataModel.dll
+D:\office\Hospital\src\EMR.DataModel\obj\Debug\EMR.DataModel.pdb

@@ -1,0 +1,38 @@
+﻿@model SMS.ViewModel.OrderVM
+
+@{
+    ViewBag.Title = "View Invoice :ByAdmin";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="box box-success">
+            <form class="form-horizontal" id="frmOrder">
+                <!--Add button-->
+                <div class="box-header with-border">
+                    <div class="btn-group pull-right">
+                        <button type="button" class="btn btn-success" onclick="window.location = '/Order/ViewInvoiceByUserName';">Back</button>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <b>
+                        Click on OrderDate : To See Invoice By OrderDate
+                    </b>                 <br />   
+                    <ul type="square">
+                        @foreach (var order in Model.OrderVMList)
+                        {
+                            <li> Order Date : 
+                                <a href="/Order/ViewinvoiceByAdminWithOrderDate?userId=@order.UserId&orderDate=@order.Order_Date">
+                                   @order.Order_Date
+                                </a>
+                            </li>
+                        }
+                    </ul>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+

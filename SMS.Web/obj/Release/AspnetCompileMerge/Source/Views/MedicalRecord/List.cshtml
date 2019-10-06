@@ -1,0 +1,145 @@
+﻿@model string
+
+@{
+    ViewBag.Title = "Medical Record List";
+    ViewBag.SubTitle = "Search, Edit and Delete";
+}
+
+@section scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            bindGrid("#tblMedicalRecordList");
+        });
+
+        function refresh() {
+            $('#tblMedicalRecordList').DataTable().ajax.reload();
+        }
+
+        function bindGrid(id) {
+            $(id).DataTable({
+                "processing": true,
+                "serverSide": true,
+                "info": true,
+                "filter": true,
+                "pageLength": 50,
+                "responsive":true,
+                buttons: [
+                    'pageLength'
+                ],
+                "ajax": {
+                    "type": "POST",
+                    "url": '@Url.Action("SelectMedicalRecordList", "MedicalRecord")?patientId=@Model',
+                    "contentType": 'application/json; charset=utf-8',
+                    'data': function (data) { return data = JSON.stringify(data); },
+                    cache: false,
+                    'error': function (msg) {
+                        document.write(msg.responseText);
+                    }
+                },
+                "columns": [
+                    {
+                        "data": "RegistrationDate",
+                        "render": function (data, type, row, meta) {
+                            var a = moment(data, "YYYYMMDD");
+                            return a.format("YYYY-MM-DD");
+                        }
+                    },
+                    { "data": "RegistrationNo", },
+                    {
+                        "data": "ArrivalTime",
+                        "render": function (data, type, row, meta) {
+                            if (data != 0) {
+                                var a = moment(data, "YYYYMMDDHHmmss");
+                                return a.format("YYYY-MM-DD HH:mm:ss");
+                            }
+
+                            return "";
+                        }
+                    },
+                    {
+                        "data": "TreatmentTime",
+                        "render": function (data, type, row, meta) {
+                            if (data != 0) {
+                                var a = moment(data, "YYYYMMDDHHmmss");
+                                return a.format("YYYY-MM-DD HH:mm:ss");
+                            }
+
+                            return "";
+                        }
+                    },
+                    {
+                        "data": "DCTime",
+                        "render": function (data, type, row, meta) {
+                            if (data != 0) {
+                                var a = moment(data, "YYYYMMDDHHmmss");
+                                return a.format("YYYY-MM-DD HH:mm:ss");
+                            }
+
+                            return "";
+                        }
+                    },
+                    { "data": "TriageValue", },
+                    { "data": "TransportationValue", },
+                    { "data": "ComeInByValue", },
+                    { "data": "ComeFrom", },
+                    { "data": "Patient.PatientCode", },
+                    { "data": "Patient.Name", },
+                    { "data": "Patient.Age", },
+                    {
+                        "data": "Patient.DOB",
+                        "render": function (data, type, row, meta) {
+                            if (data != 0) {
+                                var a = moment(data, "YYYYMMDD");
+                                return a.format("YYYY-MM-DD");
+                            }
+
+                            return "";
+                        }
+                    },
+                    { "data": "Patient.Sex", },
+                    { "data": "Patient.City", },
+                    {
+                        "data": null, "orderable": false,
+                        "render": function (data, type, row, meta) {
+                            return '<a href="/MedicalRecord/Edit?Id=' + data.Id + '"><span class="fa fa-edit" aria-hidden="true"></span></a>';
+                        }
+                    }, ],
+                "order": [0, "asc"]
+            });
+        }
+    </script>
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box-header">
+            <a href="/MedicalRecord/Entry?patientId=@Model" class="btn btn-success btn-lg pull-left">New Medical Record</a>
+        </div>
+        <div class="box-body">
+            <div class="table-responsive">
+                <table id="tblMedicalRecordList" class="table table-bordered table-striped dt-responsive nowrap" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>Registration Date</th>
+                            <th>Registration No</th>
+                            <th>Arrival Time</th>
+                            <th>Treatment Time</th>
+                            <th>DC Time</th>
+                            <th>Triage</th>
+                            <th>Transportation</th>
+                            <th>ComeInBy</th>
+                            <th>ComeFrom</th>
+                            <th>Patient Code</th>
+                            <th>Name</th>
+                            <th>Age</th>
+                            <th>DOB</th>
+                            <th>Sex</th>
+                            <th>City</th>
+                            <th>Edit</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

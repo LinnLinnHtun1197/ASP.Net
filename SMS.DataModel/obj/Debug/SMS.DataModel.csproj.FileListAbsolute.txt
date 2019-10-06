@@ -1,0 +1,46 @@
+D:\aceInspiration\ASP.NETMVC\src\EMR.DataModel\bin\Debug\SMS.DataModel.dll
+D:\aceInspiration\ASP.NETMVC\src\EMR.DataModel\bin\Debug\SMS.DataModel.pdb
+D:\aceInspiration\ASP.NETMVC\src\EMR.DataModel\bin\Debug\EntityFramework.dll
+D:\aceInspiration\ASP.NETMVC\src\EMR.DataModel\bin\Debug\EntityFramework.Extended.dll
+D:\aceInspiration\ASP.NETMVC\src\EMR.DataModel\bin\Debug\EntityFramework.SqlServer.dll
+D:\aceInspiration\ASP.NETMVC\src\EMR.DataModel\bin\Debug\EntityFramework.xml
+D:\aceInspiration\ASP.NETMVC\src\EMR.DataModel\bin\Debug\EntityFramework.Extended.xml
+D:\aceInspiration\ASP.NETMVC\src\EMR.DataModel\bin\Debug\EntityFramework.SqlServer.xml
+D:\aceInspiration\ASP.NETMVC\src\EMR.DataModel\obj\Debug\SMS.DataModel.dll
+D:\aceInspiration\ASP.NETMVC\src\EMR.DataModel\obj\Debug\SMS.DataModel.pdb
+D:\ACE Inspiration (ASP.Net MVC)\ASP.NET 201711 Class\AI_&_1_Branch\src_template\SMS.DataModel\bin\Debug\SMS.DataModel.dll
+D:\ACE Inspiration (ASP.Net MVC)\ASP.NET 201711 Class\AI_&_1_Branch\src_template\SMS.DataModel\bin\Debug\SMS.DataModel.pdb
+D:\ACE Inspiration (ASP.Net MVC)\ASP.NET 201711 Class\AI_&_1_Branch\src_template\SMS.DataModel\bin\Debug\EntityFramework.dll
+D:\ACE Inspiration (ASP.Net MVC)\ASP.NET 201711 Class\AI_&_1_Branch\src_template\SMS.DataModel\bin\Debug\EntityFramework.Extended.dll
+D:\ACE Inspiration (ASP.Net MVC)\ASP.NET 201711 Class\AI_&_1_Branch\src_template\SMS.DataModel\bin\Debug\EntityFramework.SqlServer.dll
+D:\ACE Inspiration (ASP.Net MVC)\ASP.NET 201711 Class\AI_&_1_Branch\src_template\SMS.DataModel\bin\Debug\EntityFramework.xml
+D:\ACE Inspiration (ASP.Net MVC)\ASP.NET 201711 Class\AI_&_1_Branch\src_template\SMS.DataModel\bin\Debug\EntityFramework.Extended.xml
+D:\ACE Inspiration (ASP.Net MVC)\ASP.NET 201711 Class\AI_&_1_Branch\src_template\SMS.DataModel\bin\Debug\EntityFramework.SqlServer.xml
+D:\ACE Inspiration (ASP.Net MVC)\ASP.NET 201711 Class\AI_&_1_Branch\src_template\SMS.DataModel\obj\Debug\SMS.DataModel.csprojResolveAssemblyReference.cache
+D:\ACE Inspiration (ASP.Net MVC)\ASP.NET 201711 Class\AI_&_1_Branch\src_template\SMS.DataModel\obj\Debug\SMS.DataModel.dll
+D:\ACE Inspiration (ASP.Net MVC)\ASP.NET 201711 Class\AI_&_1_Branch\src_template\SMS.DataModel\obj\Debug\SMS.DataModel.pdb
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.DataModel\bin\Debug\SMS.DataModel.dll
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.DataModel\bin\Debug\SMS.DataModel.pdb
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.DataModel\bin\Debug\EntityFramework.dll
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.DataModel\bin\Debug\EntityFramework.Extended.dll
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.DataModel\bin\Debug\EntityFramework.SqlServer.dll
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.DataModel\bin\Debug\EntityFramework.xml
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.DataModel\bin\Debug\EntityFramework.Extended.xml
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.DataModel\bin\Debug\EntityFramework.SqlServer.xml
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.DataModel\obj\Debug\SMS.DataModel.dll
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.DataModel\obj\Debug\SMS.DataModel.pdb
+D:\ACE Inspiration (ASP.Net MVC)\ACEInspiration(AttPrj)\OnlineBookStore\SMS.DataModel\obj\Debug\SMS.DataModel.csprojResolveAssemblyReference.cache
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.DataModel\bin\Debug\SMS.DataModel.dll
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.DataModel\bin\Debug\SMS.DataModel.pdb
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.DataModel\bin\Debug\EntityFramework.dll
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.DataModel\bin\Debug\EntityFramework.Extended.dll
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.DataModel\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.DataModel\bin\Debug\EntityFramework.xml
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.DataModel\bin\Debug\EntityFramework.Extended.xml
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.DataModel\bin\Debug\EntityFramework.Extended.dll.config
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.DataModel\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.DataModel\obj\Debug\SMS.DataModel.csprojAssemblyReference.cache
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.DataModel\obj\Debug\SMS.DataModel.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.DataModel\obj\Debug\SMS.DataModel.csproj.CopyComplete
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.DataModel\obj\Debug\SMS.DataModel.dll
+C:\Users\Lenovo\Downloads\Compressed\asp\OnlineBookStore\SMS.DataModel\obj\Debug\SMS.DataModel.pdb

@@ -1,0 +1,1407 @@
+﻿@model EMR.Web.ViewModels.MedicalRecordVM
+
+@{
+    ViewBag.Title = "Medical Record Editing";
+    ViewBag.SubTitle = "Emergency Department (Non-Trauma Patient Form) - (ED 01/2016)";
+}
+
+<div class="row">
+    <form id="frmRegistration">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="txtRegistrationNo" class="col-sm-4 control-label">Registration No</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="txtRegistrationNo" name="txtRegistrationNo" value="@Model.RegistrationNo" readonly placeholder="Registration No">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="txtRegistrationDate" class="col-sm-5 control-label">Registration Date</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" id="txtRegistrationDate" name="txtRegistrationDate" value="@Model.RegistrationDate" placeholder="Registration Date">
+                    <input type="hidden" value="@Model.Version" id="hidMedicalRecordVersion"/>
+                    <input type="hidden" value="@Model.Id" id="hidMedicalRecordId" />
+                    <input type="hidden" value="@Model.Patient.Version" id="hidPatientVersion" />
+                    <input type="hidden" value="@Model.Patient.Id" id="hidPatientId" />
+                    <input type="hidden" value="@Model.Patient.PatientCode" id="hidPatientCode" />
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <input type="button" class="btn btn-success" value="Save" onclick="save()" />
+            <a href="@Url.Action("List","MedicalRecord")" class="btn btn-default">Back to List</a>
+        </div>
+    </form>    
+</div>
+<div class="row" style="padding-top:10px;">
+    <div class="col-md-12">
+        <!-- Custom Tabs -->
+        <div class="nav-tabs-custom">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#tab_1" data-toggle="tab">Patient Info</a></li>
+                <li><a href="#tab_2" data-toggle="tab">Initial</a></li>
+                <li><a href="#tab_4" data-toggle="tab">Vital Signs On Arrival</a></li>
+                <li><a href="#tab_6" data-toggle="tab">Relevant History and Findings</a></li>
+                <li><a href="#tab_3" data-toggle="tab">ED Management (In cardiac arrest: use CPR Form 03/2014)</a></li>                                
+                <li><a href="#tab_5" data-toggle="tab">IVX</a></li>                
+                <li><a href="#tab_7" data-toggle="tab">Lab</a></li>
+                <li><a href="#tab_8" data-toggle="tab">Consultation</a></li>
+                <li><a href="#tab_12" data-toggle="tab">Doctors Checking</a></li>
+                <li><a href="#tab_9" data-toggle="tab">Medications</a></li>
+                <li><a href="#tab_10" data-toggle="tab">Monitoring and Progress</a></li>
+                <li><a href="#tab_11" data-toggle="tab">Disposition</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="tab_1">
+                    <div class="box box-primary">
+                        <!-- /.box-header -->
+                        <!-- form start -->
+                        <form class="form-horizontal" id="frmPatient">
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <label for="txtPatientCode" class="col-sm-2 control-label">Patient Code</label>
+                                    <div class="col-sm-5">
+                                        <input type="text" class="form-control" name="txtPatientCode" id="txtPatientCode" value="@Model.Patient.PatientCode" readonly placeholder="Patient Code">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtName" class="col-sm-2 control-label">Name</label>
+                                    <div class="col-sm-5">
+                                        <input type="text" class="form-control" name="txtName" id="txtName" value="@Model.Patient.Name" placeholder="Name">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtDOB" class="col-sm-2 control-label">DOB</label>
+                                    <div class="col-sm-5">
+                                        @if (Model.Patient.DOB == 0)
+                                        {
+                                            <input type="text" class="form-control" name="txtDOB" id="txtDOB" placeholder="Date of Birth">
+                                        }
+                                        else
+                                        {
+                                            <input type="text" class="form-control" name="txtDOB" id="txtDOB" value="@Model.Patient.DOB" placeholder="Date of Birth">
+                                        }                                        
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtAge" class="col-sm-2 control-label">Age</label>
+                                    <div class="col-sm-5">
+                                        <input type="number" class="form-control" name="txtAge" id="txtAge" value="@Model.Patient.Age" placeholder="Age">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Sex</label>
+                                    <div class="col-sm-5">
+                                        <div class="radio">
+                                            <label>
+                                                @if (Model.Patient.Sex == "Male")
+                                                {
+                                                    <input type="radio" name="sex" id="rdoMale" value="Male" checked='checked'>
+                                                }
+                                                else
+                                                {
+                                                    <input type="radio" name="sex" id="rdoMale" value="Male" >
+                                                }                                                
+                                                Male
+                                            </label>
+                                            <label>
+                                                @if (Model.Patient.Sex == "Female")
+                                                {
+                                                    <input type="radio" name="sex" id="rdoFemale" value="Female" checked='checked'>
+                                                }
+                                                else
+                                                {
+                                                    <input type="radio" name="sex" id="rdoFemale" value="Female">
+                                                }                                                
+                                                Female
+                                            </label>
+                                        </div>
+                                    </div>                                    
+                                </div>                                
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">City</label>
+                                    <div class="col-sm-5">
+                                        <input type="text" class="form-control" rows="3" name="txtCity" id="txtCity" placeholder="City" value="@Model.Patient.City" />
+                                    </div>                                    
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="tab-pane" id="tab_2">
+                    <div class="box box-primary">
+                        <!-- /.box-header -->
+                        <!-- form start -->
+                        <form class="form-horizontal">
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <label for="txtArrivalTime" class="col-sm-2 control-label">Arrival Time</label>
+                                    <div class="col-sm-5">   
+                                        @if (Model.ArrivalTime == 0)
+                                        {
+                                            <input type="text" class="form-control" id="txtArrivalTime" placeholder="Arrival Time">
+                                        }
+                                        else
+                                        {
+                                            <input type="text" class="form-control" id="txtArrivalTime" value="@Model.ArrivalTime" placeholder="Arrival Time">
+                                        }                                                                                 
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtTreatmentTime" class="col-sm-2 control-label">Treatment Time</label>
+                                    <div class="col-sm-5">
+                                        @if (Model.TreatmentTime == 0)
+                                        {
+                                            <input type="text" class="form-control" id="txtTreatmentTime" placeholder="Treatment Time">
+                                        }
+                                        else
+                                        {
+                                            <input type="text" class="form-control" id="txtTreatmentTime" value="@Model.TreatmentTime" placeholder="Treatment Time">
+                                        }   
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtDCTime" class="col-sm-2 control-label">DC Time</label>
+                                    <div class="col-sm-5">
+                                        @if (Model.DCTime == 0)
+                                        {
+                                            <input type="text" class="form-control" id="txtDCTime" placeholder="DC Time">
+                                        }
+                                        else
+                                        {
+                                            <input type="text" class="form-control" id="txtDCTime" value="@Model.DCTime" placeholder="DC Time">
+                                        }
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Triage</label>
+                                    <div class="col-sm-5">
+                                        <div class="radio">
+                                            <label>
+                                                @if (Model.TriageValue == "Red")
+                                                {
+                                                    <input type="radio" name="Triage" id="rdoRed" value="Red" checked="checked">
+                                                }
+                                                else
+                                                {
+                                                    <input type="radio" name="Triage" id="rdoRed" value="Red" >
+                                                }                                                
+                                                Red
+                                            </label>
+                                            <label>
+                                                @if (Model.TriageValue == "Yellow")
+                                                {
+                                                    <input type="radio" name="Triage" id="rdoYellow" value="Yellow" checked= "checked" >
+                                                }
+                                                else
+                                                {
+                                                    <input type="radio" name="Triage" id="rdoYellow" value="Yellow">
+                                                }                                                  
+                                                Yellow
+                                            </label>
+                                            <label>
+                                                @if (Model.TriageValue == "Green")
+                                                {
+                                                    <input type="radio" name="Triage" id="rdoGreen" value="Green" checked= "checked" >
+                                                }
+                                                else
+                                                {
+                                                    <input type="radio" name="Triage" id="rdoGreen" value="Green">
+                                                }
+                                                Green
+                                            </label>
+                                            <label>
+                                                @if (Model.TriageValue == "Black")
+                                                {
+                                                    <input type="radio" name="Triage" id="rdoBlack" value="Black" checked= "checked" >
+                                                }
+                                                else
+                                                {
+                                                    <input type="radio" name="Triage" id="rdoBlack" value="Black">
+                                                }                                                
+                                                Black
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Transportation</label>
+                                    <div class="col-sm-5">
+                                        <div class="radio">
+                                            <label>
+                                                @if (Model.TransportationValue == "AmbulanceGo")
+                                                {
+                                                    <input type="radio" name="Transportation" id="rdoAmbulanceGo" value="AmbulanceGo" checked="checked">
+                                                }
+                                                else
+                                                {
+                                                    <input type="radio" name="Transportation" id="rdoAmbulanceGo" value="AmbulanceGo">                                                
+                                                }                                                
+                                                Ambulance Go
+                                            </label>
+                                            <label>
+                                                @if (Model.TransportationValue == "AmbulanceNGO")
+                                                {
+                                                    <input type="radio" name="Transportation" id="rdoAmbulanceNGO" value="AmbulanceNGO" checked= "checked" >
+                                                }
+                                                else
+                                                {
+                                                    <input type="radio" name="Transportation" id="rdoAmbulanceNGO" value="AmbulanceNGO">
+                                                }
+                                                Ambulance NGO
+                                            </label>
+                                            <label>
+                                                @if (Model.TransportationValue == "Taxi")
+                                                {
+                                                    <input type="radio" name="Transportation" id="rdoTaxi" value="Taxi" checked= "checked" >
+                                                }
+                                                else
+                                                {
+                                                    <input type="radio" name="Transportation" id="rdoTaxi" value="Taxi">
+                                                }                                                
+                                                Taxi
+                                            </label>
+                                            <label>
+                                                @if (Model.TransportationValue == "Private")
+                                                {
+                                                    <input type="radio" name="Transportation" id="rdoPrivate" value="Private" checked= "checked" >
+                                                }
+                                                else
+                                                {
+                                                    <input type="radio" name="Transportation" id="rdoPrivate" value="Private">
+                                                }                                                 
+                                                Private
+                                            </label>
+                                            <label>
+                                                @if (Model.TransportationValue == "Others")
+                                                {
+                                                    <input type="radio" name="Transportation" id="rdoOthers" value="Others" checked= "checked" />
+                                                }
+                                                else
+                                                {
+                                                    <input type="radio" name="Transportation" id="rdoOthers" value="Others" />
+                                                } 
+                                                Others
+                                                <input type="text" class="form-control" id="txtOtherTransportation" placeholder="Transportation">
+                                            </label>
+                                        </div>                                        
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Come in by</label>
+                                    <div class="col-sm-5">
+                                        <div class="radio">
+                                            <label>
+                                                @if (Model.ComeInByValue == "Self")
+                                                {
+                                                    <input type="radio" name="Comeinby" id="rdoSelf" value="Self" checked="checked" />
+                                                }
+                                                else
+                                                {
+                                                    <input type="radio" name="Comeinby" id="rdoSelf" value="Self" />
+                                                }                                                 
+                                                Self
+                                            </label>
+                                            <label>
+                                                @if (Model.ComeInByValue == "Refer")
+                                                {
+                                                    <input type="radio" name="Comeinby" id="rdoRefer" value="Refer" checked= "checked" />
+                                                }
+                                                else
+                                                {
+                                                    <input type="radio" name="Comeinby" id="rdoRefer" value="Refer"/>
+                                                }                                                 
+                                                Refer
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtFromHospital" class="col-sm-2 control-label">From Hospital</label>
+                                    <div class="col-sm-5">
+                                        <input type="text" class="form-control" id="txtFromHospital" value="@Model.ComeFrom" placeholder="From Hospital">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Reason</label>
+                                    <div class="col-sm-5">
+                                        <textarea class="form-control" rows="3" id="txtReason" placeholder="Reason ...">@Model.ComeReason</textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="tab-pane" id="tab_3">
+                    <div class="box box-primary">
+                        <!-- /.box-header -->
+                        <!-- form start -->
+                        <form class="form-horizontal">
+                            <div class="box-body">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Airway</label>
+                                        <div class="col-sm-10">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" id="chkED_Airway_None" value="None">
+                                                    None
+                                                </label>
+                                                <label>
+                                                    <input type="checkbox" id="chkED_Airway_Suction" value="Suction">
+                                                    Suction
+                                                </label>
+                                                <label>
+                                                    <input type="checkbox" id="chkED_Airway_OPA" value="OPA">
+                                                    OPA
+                                                </label>
+                                                <label>
+                                                    <input type="checkbox" id="chkED_Airway_NPA" value="NPA">
+                                                    NPA
+                                                </label>
+                                                <label>
+                                                    <input type="checkbox" id="chkED_Airway_LMA" value="LMA">
+                                                    LMA
+                                                </label>
+                                                <label>
+                                                    <input type="checkbox" id="chkED_Airway_ETT" value="ETT">
+                                                    ETT
+                                                </label>
+                                                <label>
+                                                    <input type="checkbox" id="chkED_Airway_RSI" value="RSI">
+                                                    RSI
+                                                </label>
+                                                <label>
+                                                    <input type="checkbox" id="chkED_Airway_Ccollar" value="C-collar">
+                                                    C-collar
+                                                </label>
+                                            </div>
+                                        </div>   
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Breathing</label>
+                                        <div class="col-sm-10">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" id="chkED_Breathing_None" value="None">
+                                                    None
+                                                </label>
+                                                <label>
+                                                    <input type="checkbox" id="chkED_Breathing_NasalCatheter" value="Nasal Catheter">
+                                                    Nasal Catheter
+                                                </label>
+                                                <label>
+                                                    <input type="checkbox" id="chkED_Breathing_Mask" value="Mask">
+                                                    Mask
+                                                </label>
+                                                <label>
+                                                    <input type="checkbox" id="chkED_Breathing_BagValueMask" value="Bag Value Mask">
+                                                    Bag Value Mask
+                                                </label>
+                                                <label>
+                                                    <input type="checkbox" id="chkED_Breathing_VentilatorVolRate" value="Ventilator Vol/Rate">
+                                                    Ventilator Vol/Rate
+                                                </label>
+                                            </div>
+                                        </div> 
+                                    </div>                                                                     
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Circulation</label>
+                                        <div class="col-sm-10">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" id="chkED_Circulation_IV1" value="IV 1">
+                                                    IV 1
+                                                </label>
+                                                <label>
+                                                    <input type="checkbox" id="chkED_Circulation_IV2" value="IV 2">
+                                                    IV 2
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>   
+                                    <div class="form-group">
+                                        <label for="txtNS" class="col-sm-2 control-label">NS</label>
+                                        <div class="col-sm-10">
+                                            <input type="number" class="form-control" id="txtNS" placeholder="NS (ml)">
+                                        </div>
+                                    </div> 
+                                    <div class="form-group">
+                                        <label for="txtRL" class="col-sm-2 control-label">RL</label>
+                                        <div class="col-sm-10">
+                                            <input type="number" class="form-control" id="txtRL" placeholder="RL (ml)">
+                                        </div>
+                                    </div> 
+                                    <div class="form-group">
+                                        <label for="txtDS" class="col-sm-2 control-label">DS</label>
+                                        <div class="col-sm-10">
+                                            <input type="number" class="form-control" id="txtDS" placeholder="DS (ml)">
+                                        </div>
+                                    </div> 
+                                    <div class="form-group">
+                                        <label for="txtBlood" class="col-sm-2 control-label">Blood</label>
+                                        <div class="col-sm-10">
+                                            <input type="number" class="form-control" id="txtBlood" placeholder="Blood (ml)">
+                                        </div>
+                                    </div>                               
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="tab-pane" id="tab_4">
+                    <div class="box box-primary">
+                        <!-- /.box-header -->
+                        <!-- form start -->
+                        <form class="form-horizontal">
+                            <div class="box-body">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="txtGCS" class="col-sm-2 control-label">GCS</label>
+                                        <div class="col-sm-10">
+                                            <input type="number" class="form-control" id="txtGCS" placeholder="GCS">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="txtEye" class="col-sm-2 control-label">Eye</label>
+                                        <div class="col-sm-10">
+                                            <input type="number" class="form-control" id="txtEye" placeholder="Eye">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="txtVerbal" class="col-sm-2 control-label">Verbal</label>
+                                        <div class="col-sm-10">
+                                            <input type="number" class="form-control" id="txtVerbal" placeholder="Verbal">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="txtMotor" class="col-sm-2 control-label">Motor</label>
+                                        <div class="col-sm-10">
+                                            <input type="number" class="form-control" id="txtMotor" placeholder="Motor">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="txtTotal" class="col-sm-2 control-label">Total</label>
+                                        <div class="col-sm-10">
+                                            <input type="number" class="form-control" id="txtTotal" placeholder="Total">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="txtRightPupil" class="col-sm-2 control-label">Right Pupil</label>
+                                        <div class="col-sm-10">
+                                            <input type="number" class="form-control" id="txtRightPupil" placeholder="Right Pupil">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="txtLeftPupil" class="col-sm-2 control-label">Left Pupil</label>
+                                        <div class="col-sm-10">
+                                            <input type="number" class="form-control" id="txtLeftPupil" placeholder="Left Pupil">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="txtBloodPressure" class="col-sm-2 control-label">BP</label>
+                                        <div class="col-sm-10">
+                                            <input type="number" class="form-control" id="txtBloodPressure" placeholder="Blood Pressure">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="txtPulseRate" class="col-sm-2 control-label">PR</label>
+                                        <div class="col-sm-10">
+                                            <input type="number" class="form-control" id="txtPulseRate" placeholder="Pulse Rate">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="txtRespiratoryRate" class="col-sm-2 control-label">RR</label>
+                                        <div class="col-sm-10">
+                                            <input type="number" class="form-control" id="txtRespiratoryRate" placeholder="Respiratory Rate">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="txtCentralReactionTime" class="col-sm-2 control-label">CRT</label>
+                                        <div class="col-sm-10">
+                                            <input type="number" class="form-control" id="txtCentralReactionTime" placeholder="Central Reaction Time">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="txtSaturationOfPeripheralOxygen" class="col-sm-2 control-label">SpO2</label>
+                                        <div class="col-sm-10">
+                                            <input type="number" class="form-control" id="txtSaturationOfPeripheralOxygen" placeholder="Saturation of Peripheral Oxygen">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="txtRandomBloodSugar" class="col-sm-2 control-label">RBS</label>
+                                        <div class="col-sm-10">
+                                            <input type="number" class="form-control" id="txtRandomBloodSugar" placeholder="Random Blood Sugar">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="txtTemperature" class="col-sm-2 control-label">Temp</label>
+                                        <div class="col-sm-10">
+                                            <input type="number" class="form-control" id="txtTemperature" placeholder="Temperature">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="txtLastMenstrualPeriod" class="col-sm-2 control-label">LMP</label>
+                                        <div class="col-sm-10">
+                                            <input type="number" class="form-control" id="txtLastMenstrualPeriod" placeholder="Last Menstrual Period">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="txtElectrocardiogram" class="col-sm-2 control-label">ECG</label>
+                                        <div class="col-sm-10">
+                                            <input type="number" class="form-control" id="txtElectrocardiogram" placeholder="Electrocardiogram">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="tab-pane" id="tab_5">
+                    <div class="box box-primary">
+                        <!-- /.box-header -->
+                        <!-- form start -->
+                        <form class="form-horizontal">
+                            <div class="box-body">                                
+                                <div class="form-group">
+                                    <label for="txtXRayChest" class="col-sm-2 control-label">X-ray Chest</label>
+                                    <div class="col-sm-5">
+                                        <input type="number" class="form-control" id="txtXRayChest" placeholder="X-ray Chest">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtXRayABD" class="col-sm-2 control-label">X-ray ABD</label>
+                                    <div class="col-sm-5">
+                                        <input type="number" class="form-control" id="txtXRayABD" placeholder="X-ray ABD">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtUSG" class="col-sm-2 control-label">USG (Abd)</label>
+                                    <div class="col-sm-5">
+                                        <input type="number" class="form-control" id="txtUSG" placeholder="USG (Abd)">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtABD" class="col-sm-2 control-label">ABD CT Scan (head)</label>
+                                    <div class="col-sm-5">
+                                        <input type="number" class="form-control" id="txtABD" placeholder="ABD CT Scan (head)">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="tab-pane" id="tab_6">
+                    <div class="box box-primary">
+                        <form class="form-horizontal">
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">General</label>
+                                    <div class="col-sm-5">
+                                        <textarea class="form-control" rows="3" id="txtGeneral" placeholder="General ..."></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Heart</label>
+                                    <div class="col-sm-5">
+                                        <textarea class="form-control" rows="3" id="txtHeart" placeholder="Heart ..."></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Lungs</label>
+                                    <div class="col-sm-5">
+                                        <textarea class="form-control" rows="3" id="txtLungs" placeholder="Lungs ..."></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Abdomem</label>
+                                    <div class="col-sm-5">
+                                        <textarea class="form-control" rows="3" id="txtAbdomen" placeholder="Abdomem ..."></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Eye</label>
+                                    <div class="col-sm-5">
+                                        <textarea class="form-control" rows="3" id="txtRelevantEye" placeholder="Eye ..."></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Neurological</label>
+                                    <div class="col-sm-5">
+                                        <textarea class="form-control" rows="3" id="txtNeurological" placeholder="Neurological ..."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="tab-pane" id="tab_7">
+                    <div class="box box-primary">
+                        <form class="form-horizontal">
+                            <div class="box-body">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="txtUrea" class="col-sm-2 control-label">Urea</label>
+                                        <div class="col-sm-5">
+                                            <input type="text" class="form-control" id="txtUrea" placeholder="Urea">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="txtCreatitine" class="col-sm-2 control-label">Creatitine</label>
+                                        <div class="col-sm-5">
+                                            <input type="text" class="form-control" id="txtCreatitine" placeholder="Creatitine">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="txtNa" class="col-sm-2 control-label">Na</label>
+                                        <div class="col-sm-5">
+                                            <input type="text" class="form-control" id="txtNa" placeholder="Na">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="txtK" class="col-sm-2 control-label">K</label>
+                                        <div class="col-sm-5">
+                                            <input type="text" class="form-control" id="txtK" placeholder="K">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="txtCI" class="col-sm-2 control-label">CI</label>
+                                        <div class="col-sm-5">
+                                            <input type="text" class="form-control" id="txtCI" placeholder="CI">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="txtOthers" class="col-sm-2 control-label">Others</label>
+                                        <div class="col-sm-5">
+                                            <input type="text" class="form-control" id="txtOthers" placeholder="Others">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="txtTrop" class="col-sm-2 control-label">Trop</label>
+                                        <div class="col-sm-5">
+                                            <input type="text" class="form-control" id="txtTrop" placeholder="Trop">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="txtCBP" class="col-sm-2 control-label">CBP</label>
+                                        <div class="col-sm-5">
+                                            <input type="text" class="form-control" id="txtCBP" placeholder="CBP">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="txtHb" class="col-sm-2 control-label">Hb</label>
+                                        <div class="col-sm-5">
+                                            <input type="text" class="form-control" id="txtHb" placeholder="Hb">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="txtUCG" class="col-sm-2 control-label">UCG</label>
+                                        <div class="col-sm-5">
+                                            <input type="text" class="form-control" id="txtUCG" placeholder="UCG">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="txtBG" class="col-sm-2 control-label">BG</label>
+                                        <div class="col-sm-5">
+                                            <input type="text" class="form-control" id="txtBG" placeholder="BG">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="tab-pane" id="tab_8">
+                    <div class="box box-primary">
+                        <form class="form-horizontal">
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Procedures</label>
+                                    <div class="col-sm-5">
+                                        <textarea class="form-control" rows="5" id="txtProcedures" placeholder="Procedures ...">@Model.Procedures</textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Consultation</label>
+                                    <div class="col-sm-10">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" id="chkConsultation_Med" value="Med">
+                                                Med
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" id="chkConsultation_Sug" value="Sug">
+                                                Sug
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" id="chkConsultation_ICU" value="ICU">
+                                                ICU
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" id="chkConsultation_CCU" value="CCU">
+                                                CCU
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" id="chkConsultation_Pead" value="Pead">
+                                                Pead
+                                            </label>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" id="chkConsultation_OG" value="OG">
+                                                OG
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" id="chkConsultation_ENT" value="ENT">
+                                                ENT
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" id="chkConsultation_OMFU" value="OMFU">
+                                                OMFU
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" id="chkConsultation_NSU" value="NSU">
+                                                NSU
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" id="chkConsultation_Eye" value="Eye">
+                                                Eye
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" id="chkConsultation_Uro" value="Uro">
+                                                Uro
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" id="chkConsultation_Ortho" value="Ortho">
+                                                Ortho
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="tab-pane" id="tab_9">
+                    <div class="box box-primary">                        
+                        <div class="box-body">
+                            <table id="tblMedicationPlan" class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Drug Name</th>
+                                        <th>Dose</th>
+                                        <th>Route</th>
+                                        <th>Remarks</th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                            </table>
+                            
+                        </div>
+                        <div class="box-footer"> 
+                            <a class="btn btn-app" data-toggle="modal" data-target="#divMedicationModal" onclick="clearMedication()">
+                                <i class="fa fa-plus-square"></i> Add
+                            </a>
+                            <form class="form-horizontal">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">PMH</label>
+                                        <div class="col-sm-8">
+                                            <textarea class="form-control" rows="5" id="txtPMH" placeholder="PMH ..."></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">PSH</label>
+                                        <div class="col-sm-8">
+                                            <textarea class="form-control" rows="5" id="txtPSH" placeholder="PSH ..."></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Med</label>
+                                        <div class="col-sm-8">
+                                            <textarea class="form-control" rows="5" id="txtMed" placeholder="Med ..."></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Allergy</label>
+                                        <div class="col-sm-8">
+                                            <textarea class="form-control" rows="5" id="txtAllergy" placeholder="Allergy ..."></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                </form>
+                        </div>
+                        <div class="modal fade" id="divMedicationModal" role="dialog" aria-labelledby="myModalLabel">
+                            <form id="frmMedicationPlan" class="form-horizontal">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title" id="myModalLabel">Medication Entry</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="form-group">
+                                                <label for="txtMedicatedDate" class="col-sm-2 control-label">Date</label>
+                                                <div class='col-sm-8'>
+                                                    <input type='text' class="form-control" id='txtMedicatedDate' name="txtMedicatedDate" placeholder="YYYY-MM-DD" />
+                                                </div>
+                                                <!-- /.input group -->
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">Drug</label>
+                                                <div class="col-sm-8">
+                                                    <select class="form-control select2" name="selDrug" id="selDrug" style="width:100%;">
+                                                        <option selected="selected" value="">Select Drug</option>
+                                                        @if (Model.Drugs != null)
+                                                        {
+                                                            foreach (var item in Model.Drugs)
+                                                            {
+                                                                <option value="@item.Id">@item.Description</option>
+                                                            }
+                                                        }
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="txtDose" class="col-sm-2 control-label">Dose</label>
+                                                <div class="col-sm-8">
+                                                    <input type="number" class="form-control" id="txtDose" name="txtDose" placeholder="Dose">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="txtRoute" class="col-sm-2 control-label">Route</label>
+                                                <div class="col-sm-8">
+                                                    <input type="number" class="form-control" id="txtRoute" name="txtRoute" placeholder="Route">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">Remarks</label>
+                                                <div class="col-sm-8">
+                                                    <textarea class="form-control" rows="3" id="txtMedicationRemarks" name="txtMedicationRemarks" placeholder="Remarks ..."></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                                            <button type="button" class="btn btn-primary" onclick="addMedication();">Save</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="tab_10">
+                    <div class="box box-primary">
+                        <div class="box-body">
+                            <table id="tblMonitoringProgress" class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Date Time</th>
+                                        <th>BP</th>
+                                        <th>PR</th>
+                                        <th>RR</th>
+                                        <th>SpO2</th>
+                                        <th>GCS</th>
+                                        <th>Fluid Total</th>
+                                        <th>Urine Output</th>
+                                        <th>Antibiotic</th>
+                                        <th>Pain Killer</th>
+                                        <th>Remarks</th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                        <div class="box-footer">
+                            <a class="btn btn-app" data-toggle="modal" data-target="#divMonitoringProgress" onclick="clearMonitoringProgress()">
+                                <i class="fa fa-plus-square"></i> Add
+                            </a>
+                        </div>
+                        <div class="modal fade" id="divMonitoringProgress" role="dialog" >
+                            <form id="frmMonitoringProgress" class="form-horizontal">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title" id="myModalLabel">Monitoring and Progress</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="form-group">
+                                                <label for="txtMonitoredDateTime" class="col-sm-2 control-label">Time</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control" id="txtMonitoredDateTime" name="txtMonitoredDateTime" placeholder="YYYY-MM-DD HH:mm:ss">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="txtBP" class="col-sm-2 control-label">BP</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control" id="txtBP" name="txtBP" placeholder="BP">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="txtPR" class="col-sm-2 control-label">PR</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control" id="txtPR" name="txtPR" placeholder="PR">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="txtRR" class="col-sm-2 control-label">RR</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control" id="txtRR" name="txtRR" placeholder="RR">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="txtSpO2" class="col-sm-2 control-label">SpO2</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control" id="txtSpO2" name="txtSpO2" placeholder="SpO2">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="txtMonitoringGCS" class="col-sm-2 control-label">GCS</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control" id="txtMonitoringGCS" name="txtMonitoringGCS" placeholder="GCS">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="txtFluidTotal" class="col-sm-2 control-label">Fluid Total</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control" id="txtFluidTotal" name="txtFluidTotal" placeholder="Fluid Total">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="txtUrineOutput" class="col-sm-2 control-label">Urine Output</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control" id="txtUrineOutput" name="txtUrineOutput" placeholder="Urine Output">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="txtAntibiotic" class="col-sm-2 control-label">Antibiotic</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control" id="txtAntibiotic" name="txtAntibiotic" placeholder="Antibiotic">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="txtPainKiller" class="col-sm-2 control-label">Pain Killer</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control" id="txtPainKiller" name="txtPainKiller" placeholder="Pain Killer">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">Remarks</label>
+                                                <div class="col-sm-8">
+                                                    <textarea class="form-control" rows="3" id="txtMonitoringProgressRemarks" name="txtMonitoringProgressRemarks" placeholder="Remarks ..."></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                                            <button type="button" class="btn btn-primary" onclick="addMonitoringProgress()">Save</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>                
+                <div class="tab-pane" id="tab_11">
+                    <div class="box box-primary">
+                        <!-- /.box-header -->
+                        <!-- form start -->
+                        <form class="form-horizontal">
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Disposition</label>
+                                    <div class="col-sm-5">
+                                        <div class="radio">
+                                            <label>
+                                                @if (Model.DispositionValue == "OPD")
+                                                {
+                                                    <input type="radio" name="disposition" id="rdoOPD" value="OPD" checked="checked">
+                                                }
+                                                else
+                                                {
+                                                    <input type="radio" name="disposition" id="rdoOPD" value="OPD">
+                                                }                                                
+                                                Specialist OPD
+                                            </label>
+                                            <label>
+                                                @if (Model.DispositionValue == "Admission")
+                                                {
+                                                    <input type="radio" name="disposition" id="rdoAdmission" value="Admission" checked= "checked" >
+                                                }
+                                                else
+                                                {
+                                                    <input type="radio" name="disposition" id="rdoAdmission" value="Admission">
+                                                }                                                
+                                                Admission
+                                            </label>
+                                            <label>
+                                                @if (Model.DispositionValue == "Observation")
+                                                {
+                                                    <input type="radio" name="disposition" id="rdoObservation" value="Observation" checked= "checked" >
+                                                }
+                                                else
+                                                {
+                                                    <input type="radio" name="disposition" id="rdoObservation" value="Observation">
+                                                }                                                
+                                                Observation
+                                            </label>
+                                            <label>
+                                                @if (Model.DispositionValue == "Discharge")
+                                                {
+                                                    <input type="radio" name="disposition" id="rdoDischarge" value="Discharge" checked= "checked" >
+                                                }
+                                                else
+                                                {
+                                                    <input type="radio" name="disposition" id="rdoDischarge" value="Discharge">
+                                                }                                                
+                                                Discharge
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">General Remarks</label>
+                                    <div class="col-sm-5">
+                                        <textarea class="form-control" rows="5" id="txtGeneralRemarks" placeholder="General Remarks ...">@Model.GeneralRemarks</textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Medical Officer Name</label>
+                                    <div class="col-sm-5">
+                                        <input type="text" class="form-control" id="txtMedicalOfficerName" placeholder="Medical Officer Name" value="@Model.MedicalOfficerName" />
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="tab-pane" id="tab_12">
+                    <div class="box box-primary">
+                        <div class="box-body">
+                            <table id="tblDoctorsChecking" class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Checked Date Time</th>
+                                        <th>Doctor Name</th>
+                                        <th>Remarks</th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                        <div class="box-footer">
+                            <a class="btn btn-app" data-toggle="modal" onclick="clearDoctorCheckings();" data-target="#divDoctorsCheckModal">
+                                <i class="fa fa-plus-square"></i> Add
+                            </a>
+                        </div>
+                        <div class="modal fade" id="divDoctorsCheckModal" role="dialog">
+                            <form id="frmDoctorChecking" class="form-horizontal">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title" id="myModalLabel">Doctors Checking</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="form-group">
+                                                <label for="txtCheckedDateTime" class="col-sm-2 control-label">Date Time</label>
+                                                <div class='col-sm-8'>
+                                                    <input type='text' class="form-control" id='txtCheckedDateTime' name="txtCheckedDateTime" placeholder="YYYY-MM-DD HH:mm:ss"/>
+                                                </div>
+                                                <!-- /.input group -->
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="txtDoctor" class="col-sm-2 control-label">Doctor</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control" id="txtDoctor" name="txtDoctor" placeholder="Doctor">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">Remarks</label>
+                                                <div class="col-sm-8">
+                                                    <textarea class="form-control" rows="3" name="txtRemarks" id="txtRemarks" placeholder="Remarks ..."></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                                            <button type="button" class="btn btn-primary" onclick="addDoctorChecking()">Save</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>  
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+            <!-- /.tab-content -->
+        </div>
+        <!-- nav-tabs-custom -->
+    </div>
+</div>
+
+<div class="modal" id="divSuccess" >
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">Medical Record Entry</h4>
+            </div>
+            <div class="modal-body">
+                <p>Successfully updated!</p>
+                <p>Registration No : <b><span id="spnRegistrationNo"></span></b></p>
+                <p>Patient Code : <b><span id="spnPatientCode"></span></b></p>  
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary pull-left" data-dismiss="modal" onclick="document.location = '@Url.Action("List","MedicalRecord")';">OK</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<div class="modal fade" id="divDoctorCheckingDeleteConfirmation" tabindex="-1" role="basic" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">Doctor Checking</h4>
+            </div>
+            <div class="modal-body">
+                Are you sure to delete?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn default btn-circle" data-dismiss="modal">Close</button>
+                <button type="button" class="btn blue btn-circle" onclick="removeDoctorChecking()">Remove</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<div class="modal fade" id="divMedicationDeleteConfirmation" tabindex="-1" role="basic" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">Medicaton</h4>
+            </div>
+            <div class="modal-body">
+                Are you sure to delete?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn default btn-circle" data-dismiss="modal">Close</button>
+                <button type="button" class="btn blue btn-circle" onclick="removeMedication()">Remove</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<div class="modal fade" id="divMonitoringProgressDeleteConfirmation" tabindex="-1" role="basic" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">Monitoring and Progress</h4>
+            </div>
+            <div class="modal-body">
+                Are you sure to delete?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn default btn-circle" data-dismiss="modal">Close</button>
+                <button type="button" class="btn blue btn-circle" onclick="removeMonitoringProgress()">Remove</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+@section Scripts {
+    <script src="~/wwroot/mine/medicalRecordEdit.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            setValidationRuleForPatient();
+            setValidationRuleForDoctorChecking();
+            setValidationRuleForMedication();
+            setValidationRuleForMonitoringProgress();
+
+            @if(Model.DoctorCheckings != null)
+            {
+                for(int i = 0; i < Model.DoctorCheckings.Count(); i++)
+                {
+                    @: var value = moment('@Model.DoctorCheckings[i].CheckedDateTime', "YYYYMMDDHHmmss");
+                    @: value = value.format("YYYY-MM-DD HH:mm:ss");
+                    @: var item = {
+                        @: "CheckedDateTime": decodeData(value),
+                        @: "DoctorName": decodeData('@Model.DoctorCheckings[i].DoctorName'),
+                        @: "Remarks": decodeData('@Model.DoctorCheckings[i].Remarks'),
+                    @: };
+
+                    @: dataDoctorChecking.push(item);
+                }
+            }
+
+            @if(Model.MedicationPlans != null)
+            {
+                for(int i = 0; i < Model.MedicationPlans.Count(); i++)
+                {
+                    @: var value = moment('@Model.MedicationPlans[i].MedicatedDate', "YYYYMMDDHHmmss");
+                    @: value = value.format("YYYY-MM-DD HH:mm:ss");
+                    @: var item = {
+                        @: "MedicatedDate": decodeData(value),
+                        @: "Drug": decodeData('@Model.MedicationPlans[i].DrugId'),
+                        @: "Dose": decodeData('@Model.MedicationPlans[i].Dose'),
+                        @: "Route": decodeData('@Model.MedicationPlans[i].Route'),
+                        @: "Remarks": decodeData('@Model.MedicationPlans[i].Remarks'),
+                    @: };
+
+                    @: dataMedicationPlan.push(item);
+                }
+            }
+
+            @if(Model.MonitoringProgresses != null)
+            {
+                for(int i = 0; i < Model.MonitoringProgresses.Count(); i++)
+                {
+                    @: var value = moment('@Model.MonitoringProgresses[i].MonitoredDateTime', "YYYYMMDDHHmmss");
+                    @: value = value.format("YYYY-MM-DD HH:mm:ss");
+                    @: var item = {
+                        @: "MonitoredDateTime": decodeData(value),
+                        @: "BP": decodeData('@Model.MonitoringProgresses[i].BP'),
+                        @: "PR": decodeData('@Model.MonitoringProgresses[i].PR'),
+                        @: "RR": decodeData('@Model.MonitoringProgresses[i].RR'),
+                        @: "SpO2": decodeData('@Model.MonitoringProgresses[i].SpO2'),
+                        @: "GCS": decodeData('@Model.MonitoringProgresses[i].GCS'),
+                        @: "FluidTotal": decodeData('@Model.MonitoringProgresses[i].FluidTotal'),
+                        @: "UrineOutput": decodeData('@Model.MonitoringProgresses[i].UrineOutput'),
+                        @: "Antibiotic": decodeData('@Model.MonitoringProgresses[i].Antibiotic'),
+                        @: "PainKiller": decodeData('@Model.MonitoringProgresses[i].PainKiller'),
+                        @: "Remarks": decodeData('@Model.MonitoringProgresses[i].Remarks'),
+                    @: };
+
+                    @: dataMonitoringProgress.push(item);
+                }
+            }
+
+            @if(Model.MedicalRecordItems != null)
+            {
+                for(int i = 0; i < Model.MedicalRecordItems.Count(); i++)
+                {
+                    @: var item = {
+                        @: "Code": decodeData('@Model.MedicalRecordItems[i].Code'),
+                        @: "Value": decodeData('@Model.MedicalRecordItems[i].Value.Replace("\n", "<br>")'),
+                        @: "CodeType": decodeData('@Model.MedicalRecordItems[i].CodeType'),
+                        @: "UIReference": decodeData('@Model.MedicalRecordItems[i].UIReference'),
+                    @: };
+
+                    @: dataMedicalRecordItems.push(item);
+                }
+            }
+
+            tblDoctorsChecking = bindDoctorChecking();
+            tblMedicationPlan = bindMedication();
+            tblMonitoringProgress = bindMonitoringProgress();
+            fillData();
+
+            $(".select2").select2();
+
+            $('#txtCheckedDateTime').datetimepicker({
+                format: "YYYY-MM-DD HH:mm:ss",
+                allowInputToggle: true,
+                showTodayButton: true,
+                showClose: true,
+            });
+
+            $('#txtMedicatedDate').datetimepicker({
+                format: "YYYY-MM-DD",
+                allowInputToggle: true,
+                showTodayButton: true,
+                showClose:true,
+            });
+
+            $('#txtMonitoredDateTime').datetimepicker({
+                format: "YYYY-MM-DD HH:mm:ss",
+                allowInputToggle: true,
+                showTodayButton: true,
+                showClose:true,
+            });
+
+            $('#txtRegistrationDate').datetimepicker({
+                format: "YYYY-MM-DD",
+                allowInputToggle: true,
+                showClose:true,
+                showTodayButton: true
+            });
+
+            $('#txtDOB').datetimepicker({
+                format: "YYYY-MM-DD",
+                allowInputToggle: true,
+                showClose: true,
+                showTodayButton: true
+            });
+
+            $('#txtArrivalTime').datetimepicker({
+                format: "YYYY-MM-DD HH:mm:ss",
+                allowInputToggle: true,
+                showTodayButton: true,
+                showClose: true,
+            });
+
+            $('#txtTreatmentTime').datetimepicker({
+                format: "YYYY-MM-DD HH:mm:ss",
+                allowInputToggle: true,
+                showTodayButton: true,
+                showClose: true,
+            });
+
+            $('#txtDCTime').datetimepicker({
+                format: "YYYY-MM-DD HH:mm:ss",
+                allowInputToggle: true,
+                showTodayButton: true,
+                showClose: true,
+            });
+        });
+    </script>
+}
+

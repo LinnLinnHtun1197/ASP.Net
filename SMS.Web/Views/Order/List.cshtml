@@ -1,0 +1,98 @@
+﻿@model List<SMS.ViewModel.OrderVM>
+
+@{
+    ViewBag.Title = "Order List";
+    ViewBag.SubTitle = "Search, Edit and Delete";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="box box-success">
+            <form class="form-horizontal" id="frmBranch">
+                <div class="box-body">
+                    <table id="tblOrder" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
+                        <thead>
+                            <tr>
+                                <th>Order_Date</th>
+                                <th>Customer Name</th>
+                                <th>Phone No</th>
+                                <th>Email</th>
+                                <th>Address</th>
+                                <th>DeliveryAddress</th>
+                                <th>Book Title</th>
+                                <th>QTY</th>
+                                <th>Price</th>
+                                <th></th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.Order_Date</td>
+                                    <td>@item.Name</td>
+                                    <td>@item.PhoneNo</td>
+                                    <td>@item.Email</td>
+                                    <td>@item.FullAddress</td>
+                                    <td>@item.Delivery_Address</td>
+                                    <td>@item.Title</td>
+                                    <td>@item.Qty</td>
+                                    <td>@item.Price</td>
+
+                                    <td align="center" valign="middle"><a class="btn btn-danger" data-toggle="modal" onclick="setRemoveData('@item.Id', '@item.Version')" data-target="#divConfirm">Delete</a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="divConfirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Order List</h4>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure to delete?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                <button type="button" class="btn btn-success" data-dismiss="modal" onclick="remove()">Yes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="divSuccess">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title">Order List</h4>
+            </div>
+            <div class="modal-body">
+                <p id="pMessage"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success pull-right" data-dismiss="modal" onclick="window.location = '/Order/List';">OK</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+@section scripts{
+    <script src="~/wwroot/mine/js/Order.js"></script>
+    <script>
+        $("#tblOrder").DataTable();
+    </script>
+}

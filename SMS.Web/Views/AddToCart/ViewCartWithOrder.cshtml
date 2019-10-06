@@ -1,0 +1,87 @@
+﻿@model List<SMS.ViewModel.CartVM>
+
+@{
+    Layout = null;
+}
+@{
+    var total = 0;
+}
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>OBS | Order</title>
+    <script src="~/wwroot/mine/js/ViewCartWithOrder.js"></script>
+    <script>
+        function ToLogin() {
+            if (confirm("Please login to order!")) {
+                window.location = "/User/Login";
+            } else {
+                window.location = "/AddToCart/ViewCartByOther";
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="~/wwroot/mine/css/user.css">
+</head>
+<body>
+    <h1>View Cart</h1>
+    <div class="sidebar">
+        <ul class="cats">
+            <li><a href="/BookStore/Index">&laquo; Continue Shopping</a></li>
+            <li><a href="/AddToCart/Clear_CartByOther" class="del">&times; Clear Cart</a></li>
+        </ul>
+    </div>
+    <div class="main">
+        <table border="1">
+            <tr>
+                <th>Book Title</th>
+                <th>Quantity</th>
+                <th>Unit Price</th>
+                <th>Price</th>
+            </tr>
+            @foreach (var data in Model)
+            {
+                int price = data.Quantity * data.UnitPrice;
+                <tr>
+                    <td>@data.BookTitle</td>
+                    <td>@data.Quantity</td>
+                    <td>@data.UnitPrice</td>
+                    <td>@price</td>
+                </tr>
+                total += price;
+            }
+            <tr>
+                <td colspan="3" align="right"><b>Total: </b></td>
+                <td>@total</td>
+            </tr>
+        </table>
+
+        <input type="hidden" id="UserId" value=0 />
+        <div class="order-form">
+            <h2>Order Now</h2>
+            <form action="#">
+                <input type="text" id="date" name="Date" disabled>
+
+                <label for="name"> Name</label>
+                <input type="text" name="name" id="name">
+
+                <label for="address">Delivery Address</label>
+                <textarea name="address" id="address"></textarea>
+                <br><br>
+                <input type="button" value="Save Order" onclick="ToLogin()" style="padding: 10px 24px;margin-right: 10px;background: #16A085;color: #fff;">
+                <a href="/Bookstore/Index">Continue Shopping</a>
+            </form>
+        </div>
+       </div>
+    <div class="footer">
+        &copy; 2018. All right reserved.
+    </div>
+    <script>
+		var date = new Date();
+		document.getElementById('date').value = date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate();
+    </script>
+
+
+
+</body>
+</html>

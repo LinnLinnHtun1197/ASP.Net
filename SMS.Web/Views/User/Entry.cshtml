@@ -1,0 +1,53 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Register</title>
+    <link href="~/wwroot/mine/css/user.css" rel="stylesheet">
+    <script src="~/wwroot/mine/js/User.js"></script>
+    
+</head>
+<body>
+    <h1>User Register Form</h1>
+    <div class="container">
+        <div class="order-form">
+                <form action="/User/Entry" method="post">
+                    <label for="txtName">Name</label>
+                    <input type="text" id="txtName" name="Name" placeholder="Enter Name" required>
+
+                    <label for="txtPassword">Password</label>
+                    <input type="password" id="txtPassword" name="Password" placeholder="Enter Password" required>
+
+                    <label for="name">Gender</label>
+                    <input type="radio" name="Gender" id="optionsRadios1" value="male" checked="checked">Male
+                    <input type="radio" name="Gender" id="optionsRadios2" value="female">Female
+
+                    <label for="txtDOB">Date of Birth</label>
+                    <input type="date" name="DOBStr" id="txtDOB" style="padding: 6px;width: 300px;border: #fff solid;" required />
+
+                    <label for="txtNRC">NRC</label>
+                    <input type="text" id="txtNRC" name="NRC" placeholder="Enter NRC" required>
+
+                    <label for="txtFullAddress">Father Name</label>
+                    <input type="text" id="txtFatherName" name="FatherName" placeholder="Enter Father Name" required>
+
+                    <label for="txtFullAddress">Full Address</label>
+                    <textarea  id="txtFullAddress" name="FullAddress" placeholder="Enter Full Address" required></textarea>
+
+                    <label for="txtPhoneNo">Phone No</label>
+                    <input type="text"  id="txtPhoneNo" name="PhoneNo" placeholder="Enter Phone No" required>
+
+                    <label for="txtEmail">Email</label>
+                    <input type="email" id="txtEmail" name="Email" placeholder="Enter Email" required style="padding: 6px;width: 300px;border: #fff solid;">
+             
+                    <br><br>
+                    <input type="submit" value="Register" style="padding: 10px 24px;margin-right: 10px;">
+                    <input type="button" value="Cancel" onclick="window.location = '/User/Login' " style="padding: 10px 24px;margin-right: 10px;">
+                </form>
+            </div>
+    </div>
+</body>
+</html>

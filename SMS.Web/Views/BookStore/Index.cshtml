@@ -1,0 +1,65 @@
+﻿@model SMS.ViewModel.CategoryVM
+@{
+    Layout = null;
+}
+
+<!doctype html>
+<html>
+<head>
+    <title>Book Store</title>
+    <link rel="stylesheet" href="~/wwroot/mine/css/user.css">
+</head>
+<body>
+
+    <h1>Book Store</h1>
+    <div class="info">
+
+        <a href="/AddToCart/ViewCartByOther">
+            Books in your cart
+        </a>
+    </div>
+    <div class="sidebar">
+        <ul class="cats">
+            <li>
+                <b><a href="/BookStore/Index">All Categories</a></b>
+            </li>
+
+            @foreach (var categories in Model.categoryVMs)
+            {
+                <li>
+                    <a href="/BookStore/IndexByCategoryId?CatId=@categories.Id">
+                        @categories.Name
+                    </a>
+                </li>
+            }
+        </ul>
+
+    </div>
+
+    <div class="main">
+        <ul class="books">
+            @foreach (var books in Model.BookVMs)
+            {
+                <li>
+                    <img src="~/images/@books.Cover" height="150">
+                    <b>
+                        <a href="/BookStore/book_detail?id=@books.Id">
+                            @books.Title
+                        </a>
+                    </b>
+                    <i>Price : @books.Price</i><br>
+
+                    <a href="/AddToCart/add_to_cartByOther?id=@books.Id" class="add-to-cart">
+                        Add to Cart
+                    </a>
+
+                </li>
+            }
+
+        </ul>
+    </div>
+    <div class="footer">
+        &copy; 2018. All right reserved.
+    </div>
+</body>
+</html>

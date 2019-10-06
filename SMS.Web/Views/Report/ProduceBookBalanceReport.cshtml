@@ -1,0 +1,51 @@
+﻿@model List<SMS.ViewModel.BookVM>
+
+@{
+    ViewBag.Title = "Report : Income of Book ";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="box box-success">
+            <form class="form-horizontal" id="frmIncomeReport">
+                <!--Add button-->
+                <div class="box-body">
+                    <!--List Table-->
+                    <table id="tblIncomeReport" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
+                        <thead>
+                            <tr>
+                                <th>Category</th>
+                                <th>Title</th>
+                                <th>Author</th>
+                                <th>Summary</th>
+                                <th>Price</th>
+                                <th>Balance Qty</th>
+                                <th>Cover</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.CategoryName</td>
+                                    <td>@item.Title</td>
+                                    <td>@item.Author</td>
+                                    <td>@item.Summary</td>
+                                    <td>@item.Price</td>
+                                    <td>@item.Qty</td>
+                                    <td><img src="~/images/@item.Cover" style="width:70px;height:70px;" /></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        $('#tblIncomeReport').DataTable();
+    </script>
+}

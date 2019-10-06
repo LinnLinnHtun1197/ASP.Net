@@ -1,0 +1,37 @@
+﻿@model SMS.ViewModel.OrderVM
+@{
+    Layout = null;
+    var total = 0;
+}
+<!doctype html>
+<html>
+<head>
+    <title>Book Store</title>
+    <link rel="stylesheet" href="~/wwroot/mine/css/user.css">
+</head>
+<body>
+    <h1>Book Store</h1>
+    <div class="info">
+        <a href="/AddToCart/ViewCart">
+            Books in your cart
+        </a>
+    </div>
+    <div class="sidebar">
+        <ul class="cats">           
+            <li>
+                <b><a href="/User/Index">Back</a></b>
+            </li>
+
+        </ul>
+
+    </div>
+    <div class="main">
+        <b>       
+            <i class="NoInvoice">There is no Invoice.</i>
+        </b>
+    </div>
+    <div class="footer">
+        &copy; 2018. All right reserved.
+    </div>
+</body>
+</html>

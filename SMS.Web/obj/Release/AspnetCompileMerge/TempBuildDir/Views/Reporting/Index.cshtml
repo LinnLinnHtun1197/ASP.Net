@@ -1,0 +1,137 @@
+﻿
+@{
+    ViewBag.Title = "Summary Report";
+    ViewBag.SubTitle = "Gender, City, Triage, Transportation, Come In By";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Date Range</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" name="txtFromDate" id="txtFromDate" placeholder="From Date">
+            </div>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" name="txtToDate" id="txtToDate" placeholder="To Date">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" style="margin-top:10px;margin-bottom:10px;">
+    <div class="col-md-4">
+        <input type="button" class="btn btn-primary col-md-offset-0" onclick='refresh()' value="Submit" />
+    </div>
+</div>
+<div class="row" >
+    <div class="col-md-6">
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title">Gender</h3>
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                        <i class="fa fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="box-body">                
+                <canvas id="chartGender" style="height:250px"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title">City</h3>
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                        <i class="fa fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="box-body">
+                <canvas id="chartCity" style="height:250px"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title">Triage</h3>
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                        <i class="fa fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="box-body">
+                <canvas id="chartTriage" style="height:250px"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title">Transportation</h3>
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                        <i class="fa fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="box-body">
+                <canvas id="chartTransportation" style="height:250px"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title">Come In By</h3>
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                        <i class="fa fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="box-body">
+                <canvas id="chartComeInBy" style="height:250px"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+<script src="~/wwroot/mine/reporting.js"></script>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $('#txtFromDate').datetimepicker({
+            format: "YYYY-MM-DD",
+            allowInputToggle: true,
+            showClose: true,
+            showTodayButton: true,
+        });
+
+        $('#txtToDate').datetimepicker({
+            format: "YYYY-MM-DD",
+            allowInputToggle: true,
+            showClose: true,
+            showTodayButton: true,
+        });
+
+        $('#txtToDate').val(moment().format("YYYY-MM-DD"));
+
+        bindChart("gender", "chartGender", false);
+        bindChart("triage", "chartTriage", false);
+        bindChart("transportation", "chartTransportation", false);
+        bindChart("comeinby", "chartComeInBy", false);
+        bindChart("city", "chartCity", true);
+    });
+
+</script>
+}
+

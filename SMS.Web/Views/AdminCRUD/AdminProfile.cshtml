@@ -1,0 +1,33 @@
+﻿@model SMS.ViewModel.UserVM
+
+@{
+    ViewBag.Title = "AdminProfile";
+}
+<div class="row">
+    <div class="col-md-12">
+        <div class="box box-success">
+            <form class="form-horizontal" id="frmOrder">
+                <!--Add button-->
+                <div class="box-header with-border">
+                    <div class="btn-group pull-right">
+                        <button type="button" class="btn btn-success" onclick="window.location = '/Admin/Index';">Back</button>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <b>
+                        <i>Name		: @Model.Name</i><br>
+                        <i>Gender	: @Model.Gender</i><br>
+                        <i>Date of Birth	: @Model.DOBStr</i><br>
+                        <i>NRC	: @Model.NRC</i><br>
+                        <i>Father Name	: @Model.FatherName</i><br>
+                        <i>Full Address	: @Model.FullAddress</i><br>
+                        <i>Phone No	: @Model.PhoneNo</i><br>
+                        <i>Email	: @Model.Email</i><br>
+                    </b>
+                    <!--List Table-->
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

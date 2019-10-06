@@ -1,0 +1,90 @@
+﻿@model SMS.ViewModel.CategoryVM
+
+@{
+    ViewBag.Title = "Edit Category";
+}
+@{
+    var currentUser = (SMS.ViewModel.UserVM)Session["CurrentUser"];
+
+}
+<div class="row">
+    <div class="col-md-12">
+        <div class="box box-success">
+            <form class="form-horizontal" id="frmCategory">
+                <!--Hidden Id & Version-->
+                <input type="hidden" id="UpdatedUserId" value="@currentUser.Id" />
+                <input type="hidden" id="hidId" value="@Model.Id" />
+                <input type="hidden" id="hidVersion" value="@Model.Version" />
+                <!--Update button-->
+                <div class="box-header with-border">
+                    <div class="btn-group pull-right">
+                        <button type="button" class="btn btn-success" onclick="update()">Update</button>
+                        <button type="button" class="btn btn-default" onclick="window.location = '/Category/List';">Cancel</button>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-3">
+
+                            <div class="form-group">
+                                <label for="txtName" class="col-md-2 control-label">Category Name</label>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control" id="txtName" name="txtName" value="@Model.Name">
+                                </div>
+                            </div> <!--Name-->
+                            <div class="form-group">
+                                <label for="txtRemark" class="col-md-2 control-label">Remark</label>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control" id="txtRemark" name="txtRemark" value="@Model.Remark">
+                                </div>
+                            </div> 
+                          
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--Success Dialogbox-->
+<div class="modal" id="divSuccess">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title">Category Edit</h4>
+            </div>
+            <div class="modal-body">
+                <p id="message"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success pull-right" data-dismiss="modal" onclick="window.location = '/Category/List';">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Failure Dialogbox-->
+<div class="modal" id="divFailure">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title">Category Edit</h4>
+            </div>
+            <div class="modal-body">
+                <p id="message"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success pull-right" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/wwroot/mine/js/Category.js"></script>
+}
